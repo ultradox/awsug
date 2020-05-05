@@ -61,12 +61,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"awsugde7cc1eePostConfirmation",
+						"awsug1ae5855ePostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"awsugde7cc1eePostConfirmation",
+									"awsug1ae5855ePostConfirmation",
 									"-",
 									{
 										"Ref": "env"
@@ -101,8 +101,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-awsug-master-140523-deployment",
-					"S3Key": "amplify-builds/awsugde7cc1eePostConfirmation-47735653415a5a356167-build.zip"
+					"S3Bucket": "amplify-awsug-playpen-192134-deployment",
+					"S3Key": "amplify-builds/awsug1ae5855ePostConfirmation-36796867314c3247594d-build.zip"
 				}
 			}
 		},
@@ -112,12 +112,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"awsugde7cc1eePostConfirmation",
+						"awsug1ae5855ePostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"awsugde7cc1eePostConfirmation",
+									"awsug1ae5855ePostConfirmation",
 									"-",
 									{
 										"Ref": "env"

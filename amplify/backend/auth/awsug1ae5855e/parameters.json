@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "awsugde7cc1ee_identitypool_de7cc1ee",
+    "identityPoolName": "awsug1ae5855e_identitypool_1ae5855e",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "awsugde7cc1ee",
-    "userPoolName": "awsugde7cc1ee_userpool_de7cc1ee",
+    "resourceNameTruncated": "awsug1ae5855e",
+    "userPoolName": "awsug1ae5855e_userpool_1ae5855e",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "awsugdde7cc1ee_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "awsug11ae5855e_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "awsugde7cc1ee",
+    "resourceName": "awsug1ae5855e",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,14 +45,11 @@
         ]
     },
     "useDefault": "manual",
-    "usernameAttributes": [
-        "email"
-    ],
     "userPoolGroupList": [],
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "awsugde7cc1eePostConfirmation",
+            "resourceName": "awsug1ae5855ePostConfirmation",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",

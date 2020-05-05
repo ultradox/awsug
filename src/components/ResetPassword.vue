@@ -4,42 +4,46 @@
       <v-col cols="12" lg="6" md="8" sm="10" offset-sm="1">
         <div>
           <h2 class="headline font-weight-bold mb-3">
-            {{ !signUpState ? "Sign up" : "Confirm Sign Up" }}
+            I forgot my password 😬
           </h2>
         </div>
 
         <v-form
-          ref="signUpRef"
+          ref="forgotPW"
           lazy-validation
           v-model="valid"
-          v-if="!signUpState"
+          v-if="!formState"
         >
+          <v-text-field
+            v-model="form.username"
+            :rules="usernameRules"
+            label="* Username"
+            required
+          ></v-text-field>
+          <v-btn
+            large
+            :loading="loading"
+            :disabled="!checkValidFinal"
+            color="primary darken-1"
+            @click="forgotPW"
+            width="180"
+            >Submit <v-icon right dark>mdi-gesture-tap-button</v-icon>
+          </v-btn>
+        </v-form>
+        <v-form ref="confirmForgotPW" lazy-validation v-if="formState">
           <p>
-            Many site features require that you signup as a member.
-          </p>
-          <p>
-            Your email address is needed to verify your account. We will never
-            send unsolicited emails, or share user information with third
-            parties.
-          </p>
-          <p>
-            Please complete the form below, and click on the "Submit" button.
-            You'll be redirected to a page where you must enter a verification
-            code which will be emailed to you. You should allow up to 2 minutes
-            for this email to arrive, and it might end up in your spam folder.
-          </p>
-          <p>
-            After entering your verification code, you'll be directed to the
-            sign in page.
-          </p>
-          <p>
-            The verification process is once-off.
+            Did you receive an email with your verification code? Allow up to
+            two minutes for this email to arrive.
           </p>
           <v-text-field
             v-model="form.username"
             :rules="usernameRules"
             label="* Username"
             required
+          ></v-text-field>
+          <v-text-field
+            v-model="form.code"
+            label="* Verification code"
           ></v-text-field>
           <v-text-field
             type="password"
@@ -55,61 +59,24 @@
             label="* Confirm password"
             required
           ></v-text-field>
-          <v-text-field
-            v-model="form.email"
-            :rules="emailRules"
-            label="* E-mail"
-            required
-          ></v-text-field>
           <v-btn
             large
             :loading="loading"
             :disabled="!checkValidFinal"
             color="primary darken-1"
-            @click="signUp"
+            @click="confirmForgotPW"
             width="180"
             >Submit <v-icon right dark>mdi-gesture-tap-button</v-icon>
           </v-btn>
         </v-form>
-        <v-form ref="confirmSignUpRef" lazy-validation v-if="signUpState">
-          <p>
-            Did you receive an email with your verification code? Allow up to
-            two minutes for this email to arrive.
-          </p>
-          <v-text-field
-            v-model="form.username"
-            :rules="usernameRules"
-            label="* Username"
-            required
-          ></v-text-field>
-          <v-text-field
-            v-model="form.code"
-            label="* Verification code"
-          ></v-text-field>
-          <v-btn
-            large
-            :loading="loading"
-            :disabled="!checkValidConfirmation"
-            color="primary darken-1"
-            @click="confirmSignUp"
-            width="180"
-            >Submit <v-icon right dark>mdi-gesture-tap-button</v-icon>
-          </v-btn>
-        </v-form>
-        <br />
         <div v-if="err">
           <v-alert type="error">
             {{ err.message }}
           </v-alert>
         </div>
-        <div v-if="info">
-          <v-alert type="info">
-            {{ info }}
-          </v-alert>
-        </div>
         <v-switch
           label="Enter verification code"
-          v-model="signUpState"
+          v-model="formState"
         ></v-switch>
         <v-row>
           <v-col cols="6">
@@ -132,14 +99,13 @@ export default {
   data() {
     return {
       valid: false,
-      signUpState: false,
+      formState: false,
       loading: false,
       form: {
         username: "",
+        code: "",
         password: "",
-        passwordConfirm: "",
-        email: "",
-        code: ""
+        passwordConfirm: ""
       },
       usernameRules: [
         v => !!v || "Username is required",
@@ -153,23 +119,16 @@ export default {
         v => !!v || "Confirm password required",
         v => v === this.form.password || "Passwords do not match"
       ],
-      emailRules: [
-        v => !!v || "E-mail is required",
-        v => /.+@.+\..+/.test(v) || "E-mail must be valid"
-      ],
       info: "",
       err: ""
     };
   },
   computed: {
     checkValidRequired: function() {
-      return !!this.form.username && !!this.form.password && !!this.form.email;
+      return !!this.form.username;
     },
     checkValidFinal: function() {
       return !!this.checkValidRequired && !!this.valid;
-    },
-    checkValidConfirmation: function() {
-      return !!this.form.username && !!this.form.code;
     }
   },
   methods: {
@@ -179,37 +138,29 @@ export default {
       }
     },
     toggle() {
-      this.signUpState = !this.signUpState;
+      this.formState = !this.formState;
     },
-    async signUp() {
+    async forgotPW() {
       this.loading = true;
-      this.err = "";
-      const { username, password, email } = this.form;
-      try {
-        await Auth.signUp({
-          username,
-          password,
-          attributes: { email }
+      const { username } = this.form;
+      Auth.forgotPassword(username)
+        .then(data => {
+          this.toggle();
+          this.info = data;
+        })
+        .catch(err => {
+          this.err = err;
         });
-        this.toggle();
-        this.loading = false;
-      } catch (e) {
-        this.err = e;
-        this.loading = false;
-      }
+      this.loading = false;
     },
     // After retrieveing the confirmation code from the user
-    async confirmSignUp() {
+    async confirmForgotPW() {
       this.loading = true;
-      this.err = "";
-      const { username, code } = this.form;
-      Auth.confirmSignUp(username, code, {
-        // Optional. Force user confirmation irrespective of existing alias. By default set to True.
-        forceAliasCreation: true
-      })
+      const { username, code, password } = this.form;
+      Auth.forgotPasswordSubmit(username, code, password)
         .then(data => {
-          this.info = data;
           this.loading = false;
+          this.info = data;
           this.$router.push("/account");
         })
         .catch(err => {

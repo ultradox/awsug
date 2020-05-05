@@ -6,11 +6,7 @@
           <h2 class="headline font-weight-bold mb-3">
             Sign in
           </h2>
-          <pre>
-           {{ user }}
-          </pre>
-
-          <v-form ref="form" lazy-validation>
+          <v-form ref="signInForm" lazy-validation>
             <v-text-field
               v-model="form.username"
               :rules="usernameRules"
@@ -29,14 +25,41 @@
               large
               :loading="loading"
               :disabled="!checkValidFinal"
-              color="primary"
+              color="primary darken-1"
               @click="signIn"
+              width="180"
               >Submit <v-icon right dark>mdi-gesture-tap-button</v-icon>
             </v-btn>
           </v-form>
           <br />
-          Need an account?
-          <v-btn large text to="/signup">Sign up</v-btn>
+          <div v-if="err">
+            <v-alert type="error">
+              {{ err }}
+            </v-alert>
+          </div>
+          <div v-if="info">
+            <v-alert type="info">
+              {{ info }}
+            </v-alert>
+          </div>
+          <v-row>
+            <v-col cols="6">
+              <p class="my-2">Need an account?</p>
+            </v-col>
+            <v-col cols="3">
+              <v-btn large class="mx-4" to="/signup" width="180">Sign up</v-btn>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="6">
+              <p class="my-2">Forgot your password?</p>
+            </v-col>
+            <v-col cols="3">
+              <v-btn large class="mx-4" to="/reset-password" width="180"
+                >Reset password</v-btn
+              >
+            </v-col>
+          </v-row>
         </div>
         <div v-else>
           <p class="headline">
@@ -47,21 +70,12 @@
             <v-icon class="mr-2">mdi-logout-variant</v-icon> Sign out</v-btn
           >
         </div>
-        <div v-if="err">
-          <br />
-          <v-alert type="error">
-            {{ err }}
-          </v-alert>
-          <br />
-        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-// Consider refactoring to use Amplify withAuthenticator UI-component
-// @3m55s https://egghead.io/lessons/react-deploy-a-graphql-api-with-authentication-and-authorization-with-aws-amplify-aws-appsync
 import { Auth } from "aws-amplify";
 import { AmplifyEventBus } from "aws-amplify-vue";
 

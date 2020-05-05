@@ -3,22 +3,30 @@
     <v-container>
       <v-row>
         <v-col>
-          <p class="display-1 font-weight-light">
+          <h1 class="display-1 font-weight-light">
             Welcome <span class="error--text">{{ userName }}</span> ❣️
+          </h1>
+          <br />
+          <p class="title grey--text text--lighten-2">
+            As a member, you can
+            <router-link to="blog-admin">create and publish blogs</router-link>,
+            and comment on blogs.
           </p>
+          <p class="title grey--text text--lighten-2">
+            We are always adding new features to the site, be sure to check in
+            often ✨
+          </p>
+
           <v-btn fixed left large fab color="error darken-2" @click="signOut">
             <v-icon>mdi-logout</v-icon></v-btn
           >
-          <p class="subtitle-1 grey--text text--lighten-2">
-            Welcome to the members only page.
-          </p>
 
           <v-btn to="/profile">Change my password</v-btn>
         </v-col>
       </v-row>
-      <amplify-photo-picker
+      <!-- <amplify-photo-picker
         v-bind:photoPickerConfig="photoPickerConfig"
-      ></amplify-photo-picker>
+      ></amplify-photo-picker> -->
     </v-container>
     <v-img
       :src="require('../assets/logo-onblack.png')"
@@ -34,21 +42,19 @@ import { AmplifyEventBus } from "aws-amplify-vue";
 import { Auth } from "aws-amplify";
 
 // Storage.configure({ level: "private " });
-const photoPickerConfig = {
-  header: "Certification Upload",
-  path: "certs/",
-  storageOptions: { level: "private" }
-};
-const s3AlbumConfig = {
-  storageOptions: { level: "private" }
-};
+// const photoPickerConfig = {
+//   header: "Certification Upload",
+//   path: "certs/",
+//   storageOptions: { level: "private" }
+// };
+// const s3AlbumConfig = {
+//   storageOptions: { level: "private" }
+// };
 
 export default {
   name: "App",
 
   data: () => ({
-    photoPickerConfig,
-    s3AlbumConfig,
     userName: "",
     userId: "",
     instruction: "mdi-school",

@@ -1,12 +1,12 @@
 {
     "auth": {
-        "awsugde7cc1ee": {
+        "awsug1ae5855e": {
             "service": "Cognito",
             "providerPlugin": "awscloudformation",
             "dependsOn": [
                 {
                     "category": "function",
-                    "resourceName": "awsugde7cc1eePostConfirmation",
+                    "resourceName": "awsug1ae5855ePostConfirmation",
                     "triggerProvider": "Cognito",
                     "attributes": [
                         "Arn",
@@ -30,7 +30,7 @@
                     "defaultAuthentication": {
                         "authenticationType": "AMAZON_COGNITO_USER_POOLS",
                         "userPoolConfig": {
-                            "userPoolId": "authawsugde7cc1ee"
+                            "userPoolId": "authawsug1ae5855e"
                         }
                     }
                 }
@@ -38,7 +38,7 @@
         }
     },
     "function": {
-        "awsugde7cc1eePostConfirmation": {
+        "awsug1ae5855ePostConfirmation": {
             "build": true,
             "providerPlugin": "awscloudformation",
             "service": "Lambda"

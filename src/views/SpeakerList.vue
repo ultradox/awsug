@@ -33,7 +33,7 @@
     </div>
     <div v-if="err">
       <v-alert type="error">
-        {{ err }}
+        {{ err.message }}
       </v-alert>
     </div>
   </div>

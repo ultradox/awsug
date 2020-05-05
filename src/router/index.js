@@ -55,6 +55,11 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: "/reset-password",
+    name: "resetpw",
+    component: () => import("../components/ResetPassword")
+  },
+  {
     path: "/account",
     name: "account",
     component: () => import("../components/SignIn")

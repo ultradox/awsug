@@ -93,7 +93,7 @@ export default {
       passwordRules: [
         v => !!v || "New password is required",
         v =>
-          (v && v.length > 5) || "Password must be at least 6 characters long",
+          (v && v.length > 7) || "Password must be at least 7 characters long",
         v =>
           v !== this.form.oldPassword ||
           "Your new password is the same as the old password"
