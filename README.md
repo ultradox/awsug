@@ -96,3 +96,11 @@ query {speakerEOIByCreatedAt
     }
   }}
   ```
+
+
+# Library
+
+[Implementing Search in GraphQL](https://medium.com/open-graphql/implementing-search-in-graphql-11d5f71f179)
+[GraphQL API Security with AWS AppSync and Amplify](https://aws.amazon.com/blogs/mobile/graphql-security-appsync-amplify/)
+[Amplify GraphQL Documentation](https://aws-amplify.github.io/docs/cli-toolchain/graphql#transform)
+[Amplify GraphQL Getting Started](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js)

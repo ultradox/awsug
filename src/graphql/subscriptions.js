@@ -2,7 +2,7 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateSpeakerEoi = /* GraphQL */ `
-  subscription OnCreateSpeakerEoi($owner: String) {
+  subscription OnCreateSpeakerEoi($owner: String!) {
     onCreateSpeakerEoi(owner: $owner) {
       id
       name
@@ -22,8 +22,8 @@ export const onCreateSpeakerEoi = /* GraphQL */ `
   }
 `;
 export const onUpdateSpeakerEoi = /* GraphQL */ `
-  subscription OnUpdateSpeakerEoi($owner: String) {
-    onUpdateSpeakerEoi(owner: $owner) {
+  subscription OnUpdateSpeakerEoi {
+    onUpdateSpeakerEoi {
       id
       name
       surname
@@ -42,8 +42,8 @@ export const onUpdateSpeakerEoi = /* GraphQL */ `
   }
 `;
 export const onDeleteSpeakerEoi = /* GraphQL */ `
-  subscription OnDeleteSpeakerEoi($owner: String) {
-    onDeleteSpeakerEoi(owner: $owner) {
+  subscription OnDeleteSpeakerEoi {
+    onDeleteSpeakerEoi {
       id
       name
       surname
@@ -82,7 +82,7 @@ export const onCreateDraft = /* GraphQL */ `
   }
 `;
 export const onUpdateDraft = /* GraphQL */ `
-  subscription OnUpdateDraft($owner: String) {
+  subscription OnUpdateDraft($owner: String!) {
     onUpdateDraft(owner: $owner) {
       userName
       anchor
@@ -206,7 +206,7 @@ export const onDeletePost = /* GraphQL */ `
   }
 `;
 export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($owner: String) {
+  subscription OnCreateComment($owner: String!) {
     onCreateComment(owner: $owner) {
       id
       postAnchor
@@ -219,7 +219,7 @@ export const onCreateComment = /* GraphQL */ `
   }
 `;
 export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($owner: String) {
+  subscription OnUpdateComment($owner: String!) {
     onUpdateComment(owner: $owner) {
       id
       postAnchor

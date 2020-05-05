@@ -1,0 +1,25 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-awsug-master-140523-authRole",
+            "UnauthRoleArn": "arn:aws:iam::161492946389:role/amplify-awsug-master-140523-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::161492946389:role/amplify-awsug-master-140523-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-awsug-master-140523-deployment",
+            "UnauthRoleName": "amplify-awsug-master-140523-unauthRole",
+            "StackName": "amplify-awsug-master-140523",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:161492946389:stack/amplify-awsug-master-140523/f64c2f80-8e74-11ea-8c78-0276b5cf65f2",
+            "AmplifyAppId": "dtvsybk92w4j4"
+        },
+        "categories": {
+            "auth": {
+                "awsugde7cc1ee": {}
+            },
+            "function": {
+                "awsugde7cc1eePostConfirmation": {
+                    "GROUP": "everyone"
+                }
+            }
+        }
+    }
+}

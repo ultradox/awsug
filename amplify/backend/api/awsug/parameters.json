@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "awsug",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authawsugde7cc1ee",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

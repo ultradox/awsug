@@ -1,0 +1,47 @@
+{
+    "auth": {
+        "awsugde7cc1ee": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "awsugde7cc1eePostConfirmation",
+                    "triggerProvider": "Cognito",
+                    "attributes": [
+                        "Arn",
+                        "Name"
+                    ]
+                }
+            ]
+        }
+    },
+    "api": {
+        "awsug": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [
+                        {
+                            "authenticationType": "AWS_IAM"
+                        }
+                    ],
+                    "defaultAuthentication": {
+                        "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+                        "userPoolConfig": {
+                            "userPoolId": "authawsugde7cc1ee"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "function": {
+        "awsugde7cc1eePostConfirmation": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
+        }
+    }
+}

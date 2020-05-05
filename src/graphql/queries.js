@@ -103,68 +103,6 @@ export const listDrafts = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($anchor: String!) {
-    getPost(anchor: $anchor) {
-      userName
-      anchor
-      author
-      socLink
-      sortHash
-      title
-      summary
-      content
-      pubDate
-      createdAt
-      comments {
-        items {
-          id
-          postAnchor
-          content
-          userId
-          userName
-          createdAt
-          owner
-        }
-        nextToken
-      }
-    }
-  }
-`;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $anchor: String
-    $filter: ModelPostFilterInput
-    $limit: Int
-    $nextToken: String
-    $sortDirection: ModelSortDirection
-  ) {
-    listPosts(
-      anchor: $anchor
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      sortDirection: $sortDirection
-    ) {
-      items {
-        userName
-        anchor
-        author
-        socLink
-        sortHash
-        title
-        summary
-        content
-        pubDate
-        createdAt
-        comments {
-          nextToken
-        }
-      }
-      nextToken
-    }
-  }
-`;
 export const speakerEoiByCreatedAt = /* GraphQL */ `
   query SpeakerEoiByCreatedAt(
     $sortHash: String
@@ -234,6 +172,68 @@ export const draftByCreatedAt = /* GraphQL */ `
         pubDate
         createdAt
         owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getPost = /* GraphQL */ `
+  query GetPost($anchor: String!) {
+    getPost(anchor: $anchor) {
+      userName
+      anchor
+      author
+      socLink
+      sortHash
+      title
+      summary
+      content
+      pubDate
+      createdAt
+      comments {
+        items {
+          id
+          postAnchor
+          content
+          userId
+          userName
+          createdAt
+          owner
+        }
+        nextToken
+      }
+    }
+  }
+`;
+export const listPosts = /* GraphQL */ `
+  query ListPosts(
+    $anchor: String
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+    $sortDirection: ModelSortDirection
+  ) {
+    listPosts(
+      anchor: $anchor
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
+      items {
+        userName
+        anchor
+        author
+        socLink
+        sortHash
+        title
+        summary
+        content
+        pubDate
+        createdAt
+        comments {
+          nextToken
+        }
       }
       nextToken
     }
