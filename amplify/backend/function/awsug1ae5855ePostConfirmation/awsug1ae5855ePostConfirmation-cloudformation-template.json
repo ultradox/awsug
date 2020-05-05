@@ -101,7 +101,7 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-awsug-playpen-192134-deployment",
+					"S3Bucket": "amplify-awsug-master-74529-deployment",
 					"S3Key": "amplify-builds/awsug1ae5855ePostConfirmation-36796867314c3247594d-build.zip"
 				}
 			}

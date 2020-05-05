@@ -28,15 +28,17 @@
         </h1>
         <ul>
           <li>
-            The website repo is now in the public domain - PR's welcome :)
+            The <a href="https://github.com/ultradox/awsug">website repo</a> is
+            now in the public domain - PR's welcome :)
           </li>
           <li>
             Due to some significant backend changes and code refactoring, we had
             to recreate the Cognito user pool!
           </li>
           <li>
-            Apologies to everyone who signed up already - you'll have to sign up
-            again to get the most out of the site
+            Apologies to everyone who signed up already -
+            <span class="red--text">you'll have to sign up again</span> in order
+            to access members-only features
           </li>
         </ul>
       </v-card-text>

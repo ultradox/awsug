@@ -69,12 +69,6 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
-    path: "/palette",
-    name: "palette",
-    component: () => import("../components/Palette"),
-    meta: { requiresAuth: true }
-  },
-  {
     path: "/profile",
     name: "profile",
     component: () => import("../views/Profile"),
