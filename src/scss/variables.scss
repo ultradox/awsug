@@ -1,0 +1,8 @@
+// https://vuetifyjs.com/en/customization/sass-variables
+// $body-font-family: 'Courier New', monospace;
+$body-font-family: 'Ubuntu', sans-serif;
+
+$heading-font-family: $body-font-family;
+
+// Required for modifying core defaults
+@import '~vuetify/src/styles/styles.sass';
