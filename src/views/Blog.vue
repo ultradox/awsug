@@ -103,7 +103,10 @@ export default {
       try {
         const data = await API.graphql({
           query: listPosts,
-          variables: {},
+          variables: {
+            sortHash: "Sorted",
+            sortDirection: "DESC"
+          },
           authMode: "AWS_IAM"
         });
         this.blogs = data.data.listPosts.items;

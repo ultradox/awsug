@@ -41,7 +41,7 @@
 
       <div v-for="blog in blogs" v-bind:key="blog.anchor">
         <v-row v-if="blog.userName === userName">
-          <BlogCard :blog="blog" />
+          <BlogCardAuthor :blog="blog" />
         </v-row>
       </div>
 
@@ -62,14 +62,14 @@
 </template>
 
 <script>
-import BlogCard from "../components/BlogCard";
+import BlogCardAuthor from "../components/BlogCardAuthor";
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { draftByCreatedAt } from "../graphql/queries";
 import { Auth } from "aws-amplify";
 export default {
   name: "BlogPortal",
   components: {
-    BlogCard
+    BlogCardAuthor
   },
   data: () => ({
     fab: true,

@@ -3,10 +3,11 @@
     <br />
     <router-link
       :to="{
-        name: 'viewBlog',
+        name: 'authorViewBlog',
         params: {
           anchor: blog.anchor,
-          authAuthor: blog.userName
+          authAuthor: blog.userName,
+          review: review
         }
       }"
     >
@@ -34,7 +35,7 @@
         </v-card-text>
         <v-card-actions>
           <v-alert color="grey" width="100%" class="text-center headline">
-            Read More
+            Preview and Manage
           </v-alert>
         </v-card-actions>
       </v-card>

@@ -27,13 +27,6 @@ const routes = [
     component: () => import("../views/BlogNew"),
     meta: { requiresAuth: true }
   },
-  // {
-  //   path: "/author",
-  //   name: "getAuthor",
-  //   component: () => import("../views/ViewAuthor"),
-  //   props: true,
-  //   meta: { requiresAuth: true }
-  // },
   {
     path: "/author/:anchor",
     name: "authorViewBlog",
@@ -44,7 +37,7 @@ const routes = [
   {
     path: "/blog/:anchor",
     name: "viewBlog",
-    component: () => import("../views/BlogPreview"),
+    component: () => import("../views/BlogView"),
     props: true
   },
   {
