@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import API, { graphqlOperation } from "@aws-amplify/api";
+import API from "@aws-amplify/api";
 import BlogCard from "../components/BlogCard";
 import { listPosts } from "../graphql/queries";
 import { Auth } from "aws-amplify";
@@ -101,20 +101,15 @@ export default {
     },
     async getBlogs() {
       try {
-        const result = await API.graphql(
-          graphqlOperation(listPosts, {
-            sortHash: "Sorted",
-            sortDirection: "DESC"
-          })
-        );
-        // console.log(result);
-        // console.log("listing blogs");
-        this.blogs = result.data.listPosts.items;
+        const data = await API.graphql({
+          query: listPosts,
+          variables: {},
+          authMode: "AWS_IAM"
+        });
+        this.blogs = data.data.listPosts.items;
         this.loading = false;
-      } catch (e) {
-        // console.log(`🦠 ${e}`);
-        this.err = e;
-        this.loading = false;
+      } catch (error) {
+        this.err = error;
       }
     }
   },
