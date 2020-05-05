@@ -84,7 +84,6 @@ export default {
           variables: { anchor: this.anchor },
           authMode: "AWS_IAM"
         });
-        console.log(data);
         this.blog = data.data.getPost;
         this.loading = false;
       } catch (e) {
