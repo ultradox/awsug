@@ -148,7 +148,7 @@ export default {
       console.log(`pubDate: ${this.pubDate}`);
       // Update the Draft
       const input = {
-        userName: this.userName,
+        userName: this.draft.userName,
         anchor: this.draft.anchor,
         author: this.draft.author,
         socLink: this.draft.socLink,
@@ -157,7 +157,7 @@ export default {
         summary: this.summary,
         content: this.content,
         reqRv: false,
-        reviewed: true,
+        reviewed: false,
         pubDate: pubDate || "Publication Declined"
       };
       try {

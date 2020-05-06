@@ -82,7 +82,7 @@ export const onCreateDraft = /* GraphQL */ `
   }
 `;
 export const onUpdateDraft = /* GraphQL */ `
-  subscription OnUpdateDraft($owner: String!) {
+  subscription OnUpdateDraft($owner: String) {
     onUpdateDraft(owner: $owner) {
       userName
       anchor
