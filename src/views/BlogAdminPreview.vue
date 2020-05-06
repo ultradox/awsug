@@ -190,13 +190,12 @@ export default {
         content: this.draft.content,
         pubDate: pubDate
       };
-      console.log(input);
       try {
         await API.graphql(graphqlOperation(createPost, { input }));
         this.info = "New post published";
       } catch (err) {
         this.error += `======> insertPost Error: ${err}`;
-        console.log(`insertPost: ${err}`);
+        // console.log(`insertPost: ${err}`);
       }
     },
 
@@ -217,7 +216,7 @@ export default {
         await API.graphql(graphqlOperation(updatePost, { input }));
       } catch (err) {
         this.error += `======> updatePost Error: ${err}`;
-        console.log(`updatePost: ${err}`);
+        // console.log(`updatePost: ${err}`);
       }
     },
 
@@ -231,11 +230,11 @@ export default {
           Object.keys(this.post).length > 0 &&
           this.post.constructor === Object
         ) {
-          console.log("We're gonna have to update an existing Post");
+          // console.log("We're gonna have to update an existing Post");
           this.updatePost(this.pubDate);
         } else {
           this.createPost(this.pubDate);
-          console.log("Need to insert new Post");
+          // console.log("Need to insert new Post");
         }
       }
     }
