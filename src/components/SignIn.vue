@@ -61,15 +61,6 @@
             </v-col>
           </v-row>
         </div>
-        <div v-else>
-          <p class="headline">
-            You're already signed in,
-            <span class="error--text">{{ userName }}</span>
-          </p>
-          <v-btn color="deep-orange darken-4" @click="signOut">
-            <v-icon class="mr-2">mdi-logout-variant</v-icon> Sign out</v-btn
-          >
-        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -113,7 +104,7 @@ export default {
         this.user = user;
         this.userName = user.username;
         this.userId = user.userId;
-        // this.$router.push("/members-only");
+        this.$router.push("/members");
       } catch (e) {
         this.errGetUser = e;
       }

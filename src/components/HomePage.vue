@@ -10,11 +10,11 @@
       </v-img>
       <!-- New Zealand's own user-run, user-focused AWS community. -->
       <v-card-title class="headline white--text">{{ card.title }}</v-card-title>
-      <v-card-text>
-        <h1 class="title grey--text text--lighten-2">
+      <v-card-text class="grey--text text--lighten-2">
+        <h1 class="title">
           Have something on your mind? 🤨
         </h1>
-        <p class="subtitle-1 grey--text text--lighten-2">
+        <p class="subtitle-1">
           Publish your next AWS blog, article or poem using our fab website
           💕simply
           <router-link to="signup">sign up</router-link>, add content using
@@ -28,25 +28,49 @@
           for more details ❣️
         </p>
         <br />
-        <h1 class="title grey--text text--lighten-2">
-          Also, there have been major website changes... but there's a small
-          problem 😳
+        <h1 class="title">
+          Changes with consequences
         </h1>
         <ul>
           <li>
-            The <a href="https://github.com/ultradox/awsug">website repo</a> is
-            now in the public domain - PR's welcome :)
+            Due to
+            <a
+              href="https://docs.amplify.aws/lib/auth/getting-started/q/platform/js"
+              >@auth</a
+            >
+            backend changes our
+            <a href="https://aws.amazon.com/cognito/">AWS Cognito</a>
+            <a
+              href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"
+              >user pool</a
+            >
+            was recreated
           </li>
           <li>
-            Due to some significant backend changes and code refactoring, we had
-            to recreate the Cognito user pool!
+            <a
+              href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-import-users.html"
+              >Migrating users</a
+            >
+            seemed unfeasible with given time constraints
           </li>
           <li>
-            Apologies to everyone who signed up already -
-            <span class="red--text">you'll have to sign up again</span> in order
-            to access members-only features
+            <b>Please accept our apologies.</b> Everyone who signed up in the
+            past:
+            <router-link to="signup"
+              ><span class="red--text"
+                >you'll have to sign up again</span
+              ></router-link
+            >
+            to access members-only features.
           </li>
         </ul>
+        <br />
+        <h2 class="title">And finally...</h2>
+
+        <p>
+          The <a href="https://github.com/ultradox/awsug">website repo</a> is
+          now in the public domain - PR's welcome :)
+        </p>
       </v-card-text>
 
       <!-- Socialite-Mass Surveilance Icons -->

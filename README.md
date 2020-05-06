@@ -1,5 +1,7 @@
 # AWS User Group Aotearoa website repo
 
+Available online at [awsug.nz](https://www.awsug.nz/).
+
 ## Project setup
 To run the project locally, you need [AWS Amplify CLI](https://github.com/aws-amplify/amplify-cli). The project was deployed using AWS Amplify CLI version 4.18.1. You will have to run `amplify init` and use a profile to your own AWS account.
 ```
