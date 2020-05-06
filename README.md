@@ -28,6 +28,7 @@ npm run serve
 * The [aws-amplify-vue](https://github.com/aws-amplify/amplify-js/tree/master/packages/aws-amplify-vue) library gives us the AmplifyEventBus 🔥
 
 ## Further work
+* 🔥🔥🔥 [Restrict S3 access](https://www.google.com/search?client=firefox-b-d&q=how+to+restrict+s3+access+to+my+website+only#kpvalbx=_bpOyXuX6LO6Z4-EP6PqQgAE32)
 * Refactor code to use Vuex
 * Refactor some components for reusability / general code cleanup
 * AWS Certification Leaderboard
