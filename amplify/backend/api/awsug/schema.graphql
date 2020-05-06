@@ -48,7 +48,7 @@ type Draft
       { 
         allow: groups, 
         groups: ["admin"], 
-        operations: [read, delete] 
+        operations: [read, update, delete] 
       }
     ]
   ) 

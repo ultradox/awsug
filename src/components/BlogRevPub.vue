@@ -18,7 +18,7 @@
 
     <div v-for="blog in blogs" v-bind:key="blog.anchor">
       <v-row>
-        <BlogCard :blog="blog" :review="true" />
+        <BlogAdminCard :blog="blog" :review="true" />
       </v-row>
     </div>
 
@@ -34,12 +34,12 @@
 <script>
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { listDrafts } from "../graphql/queries";
-import BlogCard from "./BlogCard";
+import BlogAdminCard from "./BlogAdminCard";
 
 export default {
   name: "BlogPortal",
   components: {
-    BlogCard
+    BlogAdminCard
   },
   data: () => ({
     fab: true,

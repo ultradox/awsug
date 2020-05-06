@@ -133,7 +133,6 @@
           </v-form>
           <v-card-actions v-if="!distractionFree">
             <v-btn
-              v-if="!hideStuff"
               :disabled="!checkValidFinal"
               color="secondary"
               class="px-4"
@@ -189,7 +188,6 @@ export default {
     distractionFree: false,
     user: "",
     userName: "",
-    hideStuff: "",
     valid: false,
     snackbar: false,
     info: "",

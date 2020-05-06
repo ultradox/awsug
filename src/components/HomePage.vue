@@ -15,9 +15,13 @@
           Have something on your mind? 🤨
         </h1>
         <p class="subtitle-1 grey--text text--lighten-2">
-          Publish your next AWS blog, article or poem using on our fab website.
-          <router-link to="signup">Sign up</router-link>, add content using
-          MarkDown, submit for review, and voila! Checkout
+          Publish your next AWS blog, article or poem using our fab website
+          💕simply
+          <router-link to="signup">sign up</router-link>, add content using
+          <a
+            href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
+            >MarkDown</a
+          >, submit for review, and voila! Checkout
           <router-link to="blog/getting-started-blog">this blog</router-link>
           for more details ❣️
         </p>

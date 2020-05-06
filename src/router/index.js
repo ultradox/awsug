@@ -35,6 +35,13 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: "/admin/:anchor",
+    name: "adminViewBlog",
+    component: () => import("../views/BlogAdminPreview"),
+    props: true,
+    meta: { requiresAuth: true }
+  },
+  {
     path: "/blog/:anchor",
     name: "viewBlog",
     component: () => import("../views/BlogView"),

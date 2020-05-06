@@ -105,26 +105,6 @@
                 </v-alert>
               </div>
             </div>
-            <div v-if="userGroup.includes('admin')">
-              <v-btn
-                class="ma-2"
-                color="secondary"
-                @click="approvePub(true)"
-                :disabled="!draft.reqRv"
-              >
-                <v-icon class="mx-2" color="yellow">mdi-check-decagram</v-icon>
-                <span class="mx-2">Approve Publication</span>
-              </v-btn>
-              <v-btn
-                class="ma-2"
-                color="error darken-2"
-                @click="approvePub(false)"
-                :disabled="!draft.reqRv"
-              >
-                <v-icon class="mx-2" color="yellow">mdi-do-not-disturb</v-icon>
-                <span class="mx-2">Decline Publication</span>
-              </v-btn>
-            </div>
             <br />
             <v-card>
               <v-card-title>
@@ -166,7 +146,6 @@ import API, { graphqlOperation } from "@aws-amplify/api";
 import { getDraft } from "../graphql/queries";
 import { updateDraft } from "../graphql/mutations";
 import { deleteDraft } from "../graphql/mutations";
-import { createPost } from "../graphql/mutations";
 import { Auth } from "aws-amplify";
 import moment from "moment";
 
@@ -194,7 +173,6 @@ export default {
       loading: true,
       error: [],
       info: "",
-      pubDate: "",
       confirmDelete: false,
       confirmPublish: false
     };
@@ -216,10 +194,7 @@ export default {
           user.signInUserSession.accessToken.payload["cognito:groups"] || "";
         this.user = user;
         this.userName = user.username;
-        if (
-          this.userName === this.authAuthor ||
-          this.userGroup.includes("admin")
-        ) {
+        if (this.userName === this.authAuthor) {
           this.getBlog();
         } else {
           this.$router.push("/blog");
@@ -267,51 +242,6 @@ export default {
           "Awesome 💕 Your blog was submitted for review. You can edit it again once it's been reviewed.";
         this.draft.reqRv = true;
         this.confirmPublish = false;
-      } catch (err) {
-        this.err = `👾 ${err.errors[0].message}`;
-      }
-    },
-    async approvePub(bool) {
-      if (bool === true) {
-        this.pubDate = new Date().toJSON();
-        const newPost = {
-          userName: this.userName,
-          anchor: this.draft.anchor,
-          author: this.draft.author,
-          socLink: this.draft.socLink,
-          sortHash: "Sorted",
-          title: this.draft.title,
-          summary: this.draft.summary,
-          content: this.draft.content,
-          pubDate: this.pubDate
-        };
-        try {
-          API.graphql(graphqlOperation(createPost, { input: newPost }));
-          this.info = "This blog has been published 🌼";
-          this.snackbar = true;
-        } catch (err) {
-          this.err = `👾 ${err.errors[0].message}`;
-        }
-      } else {
-        this.pubDate = "Declined";
-      }
-      const input = {
-        userName: this.draft.userName,
-        anchor: this.draft.anchor,
-        author: this.draft.author,
-        socLink: this.draft.socLink,
-        sortHash: "Sorted",
-        title: this.draft.title,
-        summary: this.draft.summary,
-        content: this.draft.content,
-        reqRv: false,
-        reviewed: true,
-        pubDate: this.pubDate
-      };
-      try {
-        await API.graphql(graphqlOperation(updateDraft, { input }));
-        this.info = "Review completed 🤗";
-        this.draft.reqRv = false;
       } catch (err) {
         this.err = `👾 ${err.errors[0].message}`;
       }
