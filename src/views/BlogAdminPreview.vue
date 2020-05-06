@@ -19,7 +19,6 @@
             </v-sheet>
           </div>
           <div v-else>
-            reqRv: {{ draft.reqRv }}
             <div>
               <v-btn
                 class="ma-2"
@@ -79,7 +78,9 @@
 <script>
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { getDraft } from "../graphql/queries";
+import { getPost } from "../graphql/queries";
 import { updateDraft } from "../graphql/mutations";
+import { updatePost } from "../graphql/mutations";
 import { Auth } from "aws-amplify";
 import moment from "moment";
 
@@ -101,6 +102,7 @@ export default {
       userName: "",
       userGroup: [],
       draft: {},
+      post: {},
       addCommentBool: false,
       showCommentsBool: false,
       componentKey: 0,
@@ -144,7 +146,18 @@ export default {
         this.err = e;
       }
     },
-    async updateExistingDraft(pubDate) {
+    async getPost() {
+      try {
+        const result = await API.graphql(
+          graphqlOperation(getPost, { anchor: this.anchor })
+        );
+        this.post = result.data.getPost;
+        console.log(this.post);
+      } catch (e) {
+        this.err = e;
+      }
+    },
+    async updateDraft(pubDate) {
       console.log(`pubDate: ${this.pubDate}`);
       // Update the Draft
       const input = {
@@ -152,10 +165,10 @@ export default {
         anchor: this.draft.anchor,
         author: this.draft.author,
         socLink: this.draft.socLink,
-        sortHash: this.sortHash,
-        title: this.title,
-        summary: this.summary,
-        content: this.content,
+        sortHash: this.draft.sortHash,
+        title: this.draft.title,
+        summary: this.draft.summary,
+        content: this.draft.content,
         reqRv: false,
         reviewed: false,
         pubDate: pubDate || "Publication Declined"
@@ -171,30 +184,44 @@ export default {
       }
     },
 
+    async updatePost(pubDate) {
+      console.log(`updatePost: ${this.pubDate}`);
+      // Update the Post
+      const input = {
+        userName: this.post.userName,
+        anchor: this.post.anchor,
+        author: this.post.author,
+        socLink: this.post.socLink,
+        sortHash: this.sortHash,
+        title: this.title,
+        summary: this.summary,
+        content: this.content,
+        pubDate: pubDate,
+        reviewed: false
+      };
+      try {
+        await API.graphql(graphqlOperation(updatePost, { input }));
+        this.info2 = "Review completed 🤗";
+        console.log("input");
+        this.draft.reqRv = false;
+      } catch (err) {
+        this.err = `👾 ${err.errors[0].message}`;
+        console.log(err);
+      }
+    },
+
     async approvePub(bool) {
       // Inser the new version of the Post
       if (bool === true) {
         this.pubDate = new Date().toJSON();
-        this.updateExistingDraft(this.pubDate);
-        //   const newPost = {
-        //     userName: this.userName,
-        //     anchor: this.draft.anchor,
-        //     author: this.draft.author,
-        //     socLink: this.draft.socLink,
-        //     sortHash: "Sorted",
-        //     title: this.draft.title,
-        //     summary: this.draft.summary,
-        //     content: this.draft.content,
-        //     pubDate: this.pubDate
-        //   };
-        //   try {
-        //     API.graphql(graphqlOperation(createPost, { input: newPost }));
-        //     this.info1 = "This blog has been published 🌼";
-        //     this.snackbar = true;
-        //   } catch (err) {
-        //     this.err = `👾 ${err.errors[0].message}`;
-        //   }
-        // }
+        this.updateDraft(this.pubDate);
+        this.getPost();
+        if (this.post) {
+          this.updatePost(this.pubDate);
+        } else {
+          // this.insertPost(this.pubDate);
+          console.log("need to insert new post");
+        }
       }
     }
   },
