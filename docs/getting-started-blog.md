@@ -1,12 +1,12 @@
 # SUMMARY
 ---------------------------------------------------------------------
 
-# AWS User Group Getting Started Blog 💩
-I'm stoked to present the AWS User Group website custom built blogging engine 🎉 using [AWS Amplify development platform](https://aws.amazon.com/amplify/), [Vue.js](https://vuejs.org/), and a couple of other AWS services in the background.
+I'm stoked to present the AWS User Group new blogging thing  🎉 It uses [AWS Amplify development platform](https://aws.amazon.com/amplify/), [Vue.js](https://vuejs.org/), and a couple of other AWS services in the background. 
 
-I'd like to walk you through the process of submitting your own content to the site. The process is quick and easy. All you need to get started is to register an account on this website, prepare your content using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), and submit your draft for publication! 
+In this post, I'd like to walk you through the process of submitting your own content to the site. It's quick and easy. All you need is to register an account, prepare your content using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), and submit for publication. Next time, we'll take a closer look at the architecture and the [code base](https://github.com/ultradox/awsug).
 
 ![Photo by Glenn Carstens-Peters on Unsplash](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/get-blogging-sm.jpg "Get Bloggin!")
+
 
 # CONTENT
 ----------------------------------------------------------------------
@@ -47,7 +47,7 @@ Once you've agreed, you'll be asked to provide a Blog Title, Author and a link t
 
 ## Manage your Content
 
-Next, a blog summary of no more than 1000 characters. [The maximum size of a DynamoDB item is 400KB](https://stackoverflow.com/questions/42181346/maximum-size-of-dynamodb-item).
+Next, a blog **summary** of no more than 1000 characters. Your blog content can be substantially more: [the maximum size of a DynamoDB item is 400KB](https://stackoverflow.com/questions/42181346/maximum-size-of-dynamodb-item), you do the math.
 
 ### Write your content
 Don't be shy now. **Always remember to save.** Also, you might wanna try distraction free mode.

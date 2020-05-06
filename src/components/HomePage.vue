@@ -22,7 +22,9 @@
             href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
             >MarkDown</a
           >, submit for review, and voila! Checkout
-          <router-link to="blog/getting-started-blog">this blog</router-link>
+          <router-link to="blog/aws-user-group-getting-started-blog"
+            >this blog</router-link
+          >
           for more details ❣️
         </p>
         <br />
