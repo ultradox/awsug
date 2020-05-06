@@ -42,7 +42,7 @@
           <router-link v-if="err" to="/account">
             <v-chip class="hoverPill ma-2" color="primary" pill>
               <v-icon class="mr-2"></v-icon>
-              {{ err }}
+              Sign up/in
             </v-chip>
           </router-link>
         </span>
