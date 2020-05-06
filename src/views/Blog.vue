@@ -36,20 +36,6 @@
           <BlogCard :blog="blog" />
         </v-row>
       </div>
-
-      <div v-if="blogs.length === 0">
-        <br />
-        <v-alert type="warning">
-          Sadly there are no blogs yet. Why not be the first to publish one?
-        </v-alert>
-      </div>
-      <br />
-      <div v-if="err">
-        <v-alert type="warning">
-          <v-icon>mdi-error</v-icon>
-          {{ err }}
-        </v-alert>
-      </div>
     </v-container>
     <v-img
       :src="require('../assets/logo-onwhite.png')"
