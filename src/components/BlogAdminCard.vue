@@ -35,7 +35,7 @@
         </v-card-text>
         <v-card-actions>
           <v-alert color="grey" width="100%" class="text-center headline">
-            Read More
+            Review for Publication
           </v-alert>
         </v-card-actions>
       </v-card>

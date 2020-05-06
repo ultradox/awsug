@@ -3,12 +3,12 @@
     <v-container>
       <v-row>
         <v-col cols="12" sm="12" md="12" lg="12">
-          <v-alert type="info" v-if="info1">
-            <p class="title">{{ info1 }}</p>
+          <v-alert type="info" v-if="info">
+            <p class="title">{{ info }}</p>
           </v-alert>
-          <v-alert type="info" v-if="info2">
-            <p class="title">{{ info2 }}</p>
-          </v-alert>
+          <!-- <v-alert type="error" v-if="error">
+            <p class="title">{{ error }}</p>
+          </v-alert> -->
           <div v-if="loading">
             <v-sheet class="px-3 pt-3 pb-3">
               <v-skeleton-loader
@@ -81,6 +81,7 @@ import { getDraft } from "../graphql/queries";
 import { getPost } from "../graphql/queries";
 import { updateDraft } from "../graphql/mutations";
 import { updatePost } from "../graphql/mutations";
+import { createPost } from "../graphql/mutations";
 import { Auth } from "aws-amplify";
 import moment from "moment";
 
@@ -108,8 +109,7 @@ export default {
       componentKey: 0,
       loading: true,
       error: [],
-      info1: "",
-      info2: "",
+      info: "",
       pubDate: "",
       confirmDelete: false,
       confirmPublish: false
@@ -132,7 +132,7 @@ export default {
           this.$router.push("/blog");
         }
       } catch (e) {
-        this.errGetUser = e;
+        this.error += `======> authUser Error: ${e}`;
       }
     },
     async getDraft() {
@@ -143,7 +143,7 @@ export default {
         this.draft = result.data.getDraft;
         this.loading = false;
       } catch (e) {
-        this.err = e;
+        this.error += `======> getDraft Error: ${e}`;
       }
     },
     async getPost() {
@@ -152,14 +152,11 @@ export default {
           graphqlOperation(getPost, { anchor: this.anchor })
         );
         this.post = result.data.getPost;
-        console.log(this.post);
       } catch (e) {
-        this.err = e;
+        this.error += `======> getPost Error: ${e}`;
       }
     },
     async updateDraft(pubDate) {
-      console.log(`pubDate: ${this.pubDate}`);
-      // Update the Draft
       const input = {
         userName: this.draft.userName,
         anchor: this.draft.anchor,
@@ -175,38 +172,52 @@ export default {
       };
       try {
         await API.graphql(graphqlOperation(updateDraft, { input }));
-        this.info2 = "Review completed 🤗";
-        console.log("input");
         this.draft.reqRv = false;
       } catch (err) {
-        this.err = `👾 ${err.errors[0].message}`;
-        console.log(err);
+        this.error += `======> updateDraft Error: ${err}`;
+      }
+    },
+
+    async createPost(pubDate) {
+      const input = {
+        userName: this.draft.userName,
+        anchor: this.draft.anchor,
+        author: this.draft.author,
+        socLink: this.draft.socLink,
+        sortHash: this.draft.sortHash,
+        title: this.draft.title,
+        summary: this.draft.summary,
+        content: this.draft.content,
+        pubDate: pubDate
+      };
+      console.log(input);
+      try {
+        await API.graphql(graphqlOperation(createPost, { input }));
+        this.info = "New post published";
+      } catch (err) {
+        this.error += `======> insertPost Error: ${err}`;
+        console.log(`insertPost: ${err}`);
       }
     },
 
     async updatePost(pubDate) {
-      console.log(`updatePost: ${this.pubDate}`);
       // Update the Post
       const input = {
-        userName: this.post.userName,
-        anchor: this.post.anchor,
-        author: this.post.author,
-        socLink: this.post.socLink,
-        sortHash: this.sortHash,
-        title: this.title,
-        summary: this.summary,
-        content: this.content,
-        pubDate: pubDate,
-        reviewed: false
+        userName: this.draft.userName,
+        anchor: this.draft.anchor,
+        author: this.draft.author,
+        socLink: this.draft.socLink,
+        sortHash: this.draft.sortHash,
+        title: this.draft.title,
+        summary: this.draft.summary,
+        content: this.draft.content,
+        pubDate: pubDate
       };
       try {
         await API.graphql(graphqlOperation(updatePost, { input }));
-        this.info2 = "Review completed 🤗";
-        console.log("input");
-        this.draft.reqRv = false;
       } catch (err) {
-        this.err = `👾 ${err.errors[0].message}`;
-        console.log(err);
+        this.error += `======> updatePost Error: ${err}`;
+        console.log(`updatePost: ${err}`);
       }
     },
 
@@ -216,11 +227,15 @@ export default {
         this.pubDate = new Date().toJSON();
         this.updateDraft(this.pubDate);
         this.getPost();
-        if (this.post) {
+        if (
+          Object.keys(this.post).length > 0 &&
+          this.post.constructor === Object
+        ) {
+          console.log("We're gonna have to update an existing Post");
           this.updatePost(this.pubDate);
         } else {
-          // this.insertPost(this.pubDate);
-          console.log("need to insert new post");
+          this.createPost(this.pubDate);
+          console.log("Need to insert new Post");
         }
       }
     }
