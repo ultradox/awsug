@@ -31,7 +31,7 @@ Once you're signed in, you'll be taken to the members only area.
 ![Members only](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/welcome-member.jpg "Members only")
 
 ## Create a new blog
-Now select BLOG from the navigation bar, then press "Write a Blog".
+Now select BLOG from the navigation bar. You'll notice a button: ""My Blogs", click that, then press "Write a Blog".
 
 ![Write a new blog](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/welcome-blog-portal.jpg "Write a new blog")
 
