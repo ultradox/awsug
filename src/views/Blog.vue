@@ -49,7 +49,7 @@
 <script>
 import API from "@aws-amplify/api";
 import BlogCard from "../components/BlogCard";
-import { listPosts } from "../graphql/queries";
+import { postByPubDate } from "../graphql/queries";
 import { Auth } from "aws-amplify";
 // import AWSAppSyncClient, { AUTH_TYPE } from "aws-appsync";
 // import awsConfig from "./aws-exports";
@@ -88,14 +88,14 @@ export default {
     async getBlogs() {
       try {
         const data = await API.graphql({
-          query: listPosts,
+          query: postByPubDate,
           variables: {
             sortHash: "Sorted",
             sortDirection: "DESC"
           },
           authMode: "AWS_IAM"
         });
-        this.blogs = data.data.listPosts.items;
+        this.blogs = data.data.postByPubDate.items;
         this.loading = false;
       } catch (error) {
         this.err = error;
