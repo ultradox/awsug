@@ -172,6 +172,8 @@ export default {
         reviewed: true,
         pubDate: reviewDate || "Publication Declined 🤖"
       };
+      console.log("===================> updateDraft");
+      console.log(input);
       try {
         await API.graphql(graphqlOperation(updateDraft, { input }));
         this.draft.reqRv = false;
@@ -192,11 +194,14 @@ export default {
         content: this.draft.content,
         pubDate: pubDate
       };
+      console.log("===================> createPost");
+      console.log(input);
       try {
         await API.graphql(graphqlOperation(createPost, { input }));
         this.info = "New post published 🚀";
       } catch (err) {
         this.error += `======> insertPost Error: ${err}`;
+        console.log(err);
       }
     },
 
@@ -214,6 +219,8 @@ export default {
         pubDate: this.post.pubDate, // pubDate no change once published
         lastModified: modDate
       };
+      console.log("===================> updatePost");
+      console.log(input);
       try {
         await API.graphql(graphqlOperation(updatePost, { input }));
         this.info = "Existing post updated 🤓";
@@ -227,10 +234,7 @@ export default {
       if (bool === true) {
         let dtStamp = new Date().toJSON();
         this.updateDraft(dtStamp);
-        if (
-          Object.keys(this.post).length > 0 &&
-          this.post.constructor === Object
-        ) {
+        if (this.post) {
           this.updatePost(dtStamp);
         } else {
           this.createPost(dtStamp);

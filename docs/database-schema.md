@@ -1,10 +1,10 @@
 # TITLE
 ----------------------------------------------------
-AWS Amplify Multi-Auth GraphQL 🔥🔐😻
+AWS Amplify Multi-Auth GraphQL
 
 # SUMMARY
 ----------------------------------------------------
-# AWS AppSync GraphQL API Security
+# AWS AppSync GraphQL API Security 🔥🔐😻
 In the preceding blog, we took a look at the blogging engine used to manage user's content, submit requests for publication, and how site administrators review and publish blogs.
 
 In this blog post, we look at the backend configuration managed and deployed with AWS [Amplify Framework](https://docs.amplify.aws/). In particular, we do a deep dive on the different authorization modes available to secure GraphQL APIs, and look at their implementation on this website's blogging engine. Enjoy ❣️
@@ -17,7 +17,7 @@ In this blog post, we look at the backend configuration managed and deployed wit
 
 # CONTENT
 ------------------------------------------------------
-# AWS AppSync GraphQL API Security
+# AWS AppSync GraphQL API Security 🔥🔐😻
 > Estimated 12+ hours read ⏱ `if you follow along ;)`
 
 Are you curious to know if your original content is safe on this site? Let's take a closer look at the blogging engine we use to manage the blog your reading at this very moment. Pure _recursive_ joy❣️  Feel free at any time to **[join the fun](https://www.awsug.nz/blog-admin)**. You can also read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details on getting started.
