@@ -20,12 +20,9 @@ In this blog post, we look at the backend configuration managed and deployed wit
 # AWS AppSync GraphQL API Security
 > Estimated 12+ hours read ⏱ `if you follow along ;)`
 
-Are you curious to know if your original content is safe on this site? Let's take a closer look at the blogging engine we use to manage the blog your reading at this very moment. Pure _recursive_ joy❣️ 
+Are you curious to know if your original content is safe on this site? Let's take a closer look at the blogging engine we use to manage the blog your reading at this very moment. Pure _recursive_ joy❣️  Feel free at any time to **[join the fun](https://www.awsug.nz/blog-admin)**. You can also read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details on getting started.
 
-> **[Join the fun](https://www.awsug.nz/blog-admin)**
-> Read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details
-
-# Ensuring authorised access to GraphQL API's
+# Authorizing access to GraphQL API's
 
 Securing serverless applications is a big topic. Let's take a closer look at one aspect in particular: GraphQL API Authorization. 
 
@@ -34,6 +31,7 @@ According to Nader Dabit (**[AWS, May 2019](https://aws.amazon.com/blogs/mobile/
 Turns out... that last statement presented some challenges. After applying API Key authorization in conjunction with Cognito authorization, I found that authenticated users could read public blogs, but that unauthenticated users were prevented from viewing the blog. But I'm getting ahead of myself... let's first take a look at the users, data entities and use cases.
 
 > Read more about AWS [AppSync](https://aws.amazon.com/appsync/)
+>
 > Read more about [AppSync Security](https://docs.aws.amazon.com/appsync/latest/devguide/security.html)
 
 ## Users
@@ -148,7 +146,7 @@ type Post
   }
 ```
 
-Notice we are now using two authorization types: `@aws_iam` and `@aws_cognito_user_pools`. let's look at each of the rules in turn:
+Notice we are now using two authorization types: `@aws_iam` and `@aws_cognito_user_pools`. Let's look at each of the rules in turn:
 - First rule states that Cognito users belonging to the `admin` group have `CRUD` permissions
 - Second rule says Cognito users belonging to the `everyone` group have `read` permissions
 - Finally, we see public `read` access is given through `@aws_iam` (`{allow: public provider: iam}`)
@@ -169,7 +167,14 @@ To ensure all newly registered users are automatically added to the `everyone` C
 Here's a look at the AWS resources in terms of how users interact with Draft entity:
 ![DynamoDB Draft entity and affected/ing services](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/aws-design-post.jpg "DynamoDB Draft entity and affected/ing services")
 
-You can see Amplify provisioned additional resources, including a Post Confirmation lambda function. 
+You can see Amplify provisioned additional resources, including a Post Confirmation lambda function trigger to add all new registrants to the "everyone" user group on Cognito.
+
+But there's one bit missing - an IAM role with appropriate policy attached to the Cognito user group.
+
+![Cognito User Group IAM Role ARN](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/cognito-user-group-role-arn.jpg "Cognito User Group IAM Role ARN")
+
+And the policy...
+![IAM Role Policy](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/cognito-user-group-role-policy.jpg "IAM Role Policy")
 
 
 ## JavaScript / Vue Implementation for Draft
@@ -203,40 +208,7 @@ Quick and easy. I don't even have to worry about specifying the owner of the Dra
 
 If you look carefully at the `/amplify/backend/api/awsug/schema.graphql` schema definition in the [repo](https://github.com/ultradox/awsug), you'll notice there is no owner column. But if you look at the DynamoDB table that gets created when you push your backend changes with the CLI `$ amplify push` command, you'll see a column automatically added to the table: `owner` 🛸 whoeeee....
 
-
-## JavaScript implementation for Draft
-
-The section of code below is taken from the Vue file creating a new draft: `/src/views/BlogNew.vue`. Before a new draft can be created, the program checks to see that the value for `anchor` generated from the title is unique (`getDraft`):
-
-```
-import API, { graphqlOperation } from "@aws-amplify/api";
-import { createDraft } from "../graphql/mutations";
-import { getDraft } from "../graphql/queries";
-
-// getDraft
-async getDraft(anchor) {
-      try {
-        const result = await API.graphql(
-          graphqlOperation(getDraft, { anchor: anchor })
-        );
-        if (result.data.getDraft) {
-          this.anchorTaken = true;
-        } 
-
-async createDraft() {
-    try {
-        await API.graphql(graphqlOperation(createDraft, { input }));
-        ...
-    } catch(e) {
-        ...
-    } 
-```
-Quick and easy. I don't even have to worry about specifying the owner of the Draft. As long as I understand the use case, implementing at the most rudimentary level proves a breeze. Now if any authorized User asks for Drafts, the database only ever returns records **owned** by that user. No further filtering required.
-
-If you look carefully at the `/amplify/backend/api/awsug/schema.graphql` schema definition in the [repo](https://github.com/ultradox/awsug), you'll notice there is no owner column. But if you look at the DynamoDB table that gets created when you push your backend changes with the CLI `$ amplify push` command, you'll see a column automatically added to the table: `owner` 🛸 whoeeee....
-
-
-## JavaScript implementation for Post
+## JavaScript implementation for getPost
 If you look at `/src/views/BlogView.vue` you'll notice a different implementation of the GraphQL `query` to make use of IAM authorisation:
 
 ```
@@ -257,13 +229,13 @@ import { getPost } from "../graphql/queries";
 ```
 
 # References
-- Nader Dabit, "Using multiple authorization types with AWS AppSync GraphQL APIs" [available online](https://aws.amazon.com/blogs/mobile/using-multiple-authorization-types-with-aws-appsync-graphql-apis/)
+- Nader Dabit, "**Using multiple authorization types with AWS AppSync GraphQL APIs**" [available online](https://aws.amazon.com/blogs/mobile/using-multiple-authorization-types-with-aws-appsync-graphql-apis/)
 
 - Jane Shen, "**Supporting backend and internal processes with AWS AppSync multiple authorization types**" [available online](https://aws.amazon.com/blogs/mobile/supporting-backend-and-internal-processes-with-aws-appsync-multiple-authorization-types/)
-- Orjiewuru Kingdom, "GraphQL Queries, Mutations and Subscriptions" [available online](https://medium.com/software-insight/graphql-queries-mutations-and-subscriptions-286522b263d9)\
+- Orjiewuru Kingdom, "**GraphQL Queries, Mutations and Subscriptions**" [available online](https://medium.com/software-insight/graphql-queries-mutations-and-subscriptions-286522b263d9)\
 
-- AWS AppSync documentation, "AWS AppSync Security" [available online](https://docs.aws.amazon.com/appsync/latest/devguide/security.html)
+- AWS AppSync documentation, "**AWS AppSync Security**" [available online](https://docs.aws.amazon.com/appsync/latest/devguide/security.html)
 
-- FullstackPho, "AWS Amplify Multi-Auth GraphQL — Public Read and Authenticated Create, Update, Delete" [available online](https://medium.com/@fullstackpho/aws-amplify-multi-auth-graphql-public-read-and-authenticated-create-update-delete-1bf5443b0ad1)
+- FullstackPho, "**AWS Amplify Multi-Auth GraphQL — Public Read and Authenticated Create, Update, Delete**" [available online](https://medium.com/@fullstackpho/aws-amplify-multi-auth-graphql-public-read-and-authenticated-create-update-delete-1bf5443b0ad1)
 
-- AWS DynamoDB documentation, "Improving Data Access with Secondary Indexes" [available online](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html)
+- AWS DynamoDB documentation, "**Improving Data Access with Secondary Indexes**" [available online](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html)
