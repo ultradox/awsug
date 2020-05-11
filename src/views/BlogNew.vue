@@ -259,7 +259,7 @@ export default {
       title = title.replace(/[^a-zA-Z0-9/-]/g, "");
       this.form.anchor = title;
     },
-    async getBlog(anchor) {
+    async getDraft(anchor) {
       try {
         const result = await API.graphql(
           graphqlOperation(getDraft, { anchor: anchor })
@@ -276,7 +276,7 @@ export default {
     },
     async submit() {
       this.createAnchor(this.form.title);
-      await this.getBlog(this.form.anchor);
+      await this.getDraft(this.form.anchor);
       if (this.anchorTaken == false) {
         const input = {
           userName: this.userName,

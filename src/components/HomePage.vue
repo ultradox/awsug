@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-card>
       <!-- AWSUG Aotearoa Fern Image - normal and wide view -->
       <v-img

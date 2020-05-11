@@ -117,7 +117,7 @@
                     Created on {{ customFormatter(draft.createdAt) }}<br />
                     <span v-if="draft.pubDate"
                       ><b class="primary--text"
-                        >Published on {{ draft.pubDate }}</b
+                        >Published on {{ customFormatter(draft.pubDate) }}</b
                       ></span
                     >
                     <span v-else-if="draft.reqRv">

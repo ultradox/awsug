@@ -22,10 +22,10 @@
               <span v-if="blog.pubDate"
                 >Published on {{ customFormatter(blog.pubDate) }}</span
               >
-              <span v-else-if="blog.reqRv">
-                <b class="primary--text">Under review for publication</b>
+              <span v-if="blog.lastModified">
+                <br />
+                Last updated {{ customFormatter(blog.lastModified) }}
               </span>
-              <span v-else><b class="primary--text">In draft</b></span>
             </p>
           </div>
         </v-card-subtitle>
@@ -33,7 +33,7 @@
           <markdown-it-vue :class="md_text" :content="blog.summary" />
         </v-card-text>
         <v-card-actions>
-          <v-alert color="grey" width="100%" class="text-center headline">
+          <v-alert width="100%"  color="grey" class="text-center headline">
             Read More
           </v-alert>
         </v-card-actions>

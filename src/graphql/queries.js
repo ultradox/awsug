@@ -189,6 +189,7 @@ export const getPost = /* GraphQL */ `
       summary
       content
       pubDate
+      lastModified
       createdAt
       comments {
         items {
@@ -230,6 +231,7 @@ export const listPosts = /* GraphQL */ `
         summary
         content
         pubDate
+        lastModified
         createdAt
         comments {
           nextToken
@@ -266,6 +268,7 @@ export const postByPubDate = /* GraphQL */ `
         summary
         content
         pubDate
+        lastModified
         createdAt
         comments {
           nextToken

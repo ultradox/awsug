@@ -111,6 +111,7 @@ export default {
       error: [],
       info: "",
       pubDate: "",
+      modDate: "",
       confirmDelete: false,
       confirmPublish: false
     };
@@ -148,17 +149,15 @@ export default {
     },
     async getPost() {
       try {
-        const data = await API.graphql({
-          query: getPost,
-          variables: { anchor: this.anchor },
-          authMode: "AWS_IAM"
-        });
-        this.post = data.data.getPost;
-      } catch (error) {
-        this.err = error;
+        const result = await API.graphql(
+          graphqlOperation(getPost, { anchor: this.anchor })
+        );
+        this.post = result.data.getPost;
+      } catch (e) {
+        this.error += `======> getPost Error: ${e}`;
       }
     },
-    async updateDraft(reviewDate) {
+    async updateDraft(pubDate) {
       const input = {
         userName: this.draft.userName,
         anchor: this.draft.anchor,
@@ -170,10 +169,12 @@ export default {
         content: this.draft.content,
         reqRv: false,
         reviewed: true,
-        pubDate: reviewDate || "Publication Declined 🤖"
+        pubDate: pubDate || "Publication Declined"
       };
       try {
-        await API.graphql(graphqlOperation(updateDraft, { input }));
+        // await API.graphql(graphqlOperation(updateDraft, { input }));
+        console.log("===============>>>> updateDraft, { input } ");
+        console.log(input);
         this.draft.reqRv = false;
       } catch (err) {
         this.error += `======> updateDraft Error: ${err}`;
@@ -193,15 +194,20 @@ export default {
         pubDate: pubDate
       };
       try {
-        await API.graphql(graphqlOperation(createPost, { input }));
-        this.info = "New post published 🚀";
+        // await API.graphql(graphqlOperation(createPost, { input }));
+        console.log("===============>>>> createPost, { input } ");
+        console.log(input);
+        this.success = "New post published";
       } catch (err) {
         this.error += `======> insertPost Error: ${err}`;
+        // console.log(`insertPost: ${err}`);
       }
     },
 
-    async updatePost(modDate) {
+    async updatePost() {
       // Update the Post
+      let modDate = new Date().toJSON();
+      console.log(`modDate: ${modDate}`);
       const input = {
         userName: this.draft.userName,
         anchor: this.draft.anchor,
@@ -212,28 +218,33 @@ export default {
         summary: this.draft.summary,
         content: this.draft.content,
         pubDate: this.post.pubDate, // pubDate no change once published
-        lastModified: modDate
+        lastModified: this.modDate
       };
       try {
-        await API.graphql(graphqlOperation(updatePost, { input }));
+        // await API.graphql(graphqlOperation(updatePost, { input }));
+        console.log("===============>>>> updatePost, { input } ");
+        console.log(input);
         this.info = "Existing post updated 🤓";
       } catch (err) {
         this.error += `======> updatePost Error: ${err}`;
+        // console.log(`updatePost: ${err}`);
       }
     },
 
     async approvePub(bool) {
-      // Insert the new version of the Post
+      // Inser the new version of the Post
       if (bool === true) {
-        let dtStamp = new Date().toJSON();
-        this.updateDraft(dtStamp);
+        this.pubDate = new Date().toJSON();
+        this.updateDraft(this.pubDate);
         if (
           Object.keys(this.post).length > 0 &&
           this.post.constructor === Object
         ) {
-          this.updatePost(dtStamp);
+          // console.log("We're gonna have to update an existing Post");
+          this.updatePost();
         } else {
-          this.createPost(dtStamp);
+          this.createPost(this.pubDate);
+          // console.log("Need to insert new Post");
         }
       } else {
         this.updateDraft();

@@ -10,6 +10,7 @@ In this post, I'd like to walk you through the process of submitting your own co
 
 # CONTENT
 ----------------------------------------------------------------------
+[LinkedIn](https://www.linkedin.com/in/carlos-reyneke-636037108/)
 
 # AWS User Group Blogging
 > Estimated 5 minute read ⏱

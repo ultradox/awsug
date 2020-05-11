@@ -133,6 +133,7 @@ export const onCreatePost = /* GraphQL */ `
       summary
       content
       pubDate
+      lastModified
       createdAt
       comments {
         items {
@@ -161,6 +162,7 @@ export const onUpdatePost = /* GraphQL */ `
       summary
       content
       pubDate
+      lastModified
       createdAt
       comments {
         items {
@@ -189,6 +191,7 @@ export const onDeletePost = /* GraphQL */ `
       summary
       content
       pubDate
+      lastModified
       createdAt
       comments {
         items {

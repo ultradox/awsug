@@ -23,6 +23,10 @@
                     Written by <a :href="blog.socLink">{{ blog.author }}</a
                     ><br />
                     Published on {{ customFormatter(blog.pubDate) }}
+                    <span v-if="blog.lastModified">
+                      <br />
+                      Last updated {{ customFormatter(blog.lastModified) }}
+                    </span>
                   </p>
                 </div>
               </v-card-subtitle>
@@ -87,7 +91,6 @@ export default {
         this.blog = data.data.getPost;
         this.loading = false;
       } catch (e) {
-        // console.log(e.errors[0].message);
         this.err = e.errors[0].message || e;
       }
     }
