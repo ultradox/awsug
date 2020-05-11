@@ -42,20 +42,20 @@ type Draft
   @auth(
     rules: [
       { 
-        allow: owner, 
+        allow: owner
         operations: [create, read, update, delete]
       }
       { 
-        allow: groups, 
-        groups: ["admin"], 
+        allow: groups
+        groups: ["admin"]
         operations: [read, update, delete] 
       }
     ]
   ) 
   @key (fields: ["anchor"])
   @key (
-    name: "byCreatedAt",
-    fields: ["sortHash", "createdAt"],
+    name: "byCreatedAt"
+    fields: ["sortHash", "createdAt"]
     queryField: "draftByCreatedAt"
   ) 
   {
@@ -99,8 +99,8 @@ type Post
   )
   @key (fields: ["anchor"])
   @key (
-    name: "byPubDate",
-    fields: ["sortHash", "pubDate"],
+    name: "byPubDate"
+    fields: ["sortHash", "pubDate"]
     queryField: "postByPubDate"
   ) 
   {
@@ -128,25 +128,25 @@ type Comment
         operations: [create, read, update, delete] 
       }
       { 
-        allow: groups, 
-        groups: ["admin"], 
+        allow: groups
+        groups: ["admin"]
         operations: [read, delete] 
       }
       { 
-        allow: groups, 
-        groups: ["everyone"], 
+        allow: groups
+        groups: ["everyone"]
         operations: [read] 
       }
       { 
-        allow: public, 
+        allow: public
         provider: iam
-        operations: [read],
+        operations: [read]
       }
     ]
   ) 
   @key (
-    name: "byAnchor", 
-    fields: ["postAnchor", "createdAt"], 
+    name: "byAnchor"
+    fields: ["postAnchor", "createdAt"]
     queryField: "commentByCreatedAt" 
   ) 
   {

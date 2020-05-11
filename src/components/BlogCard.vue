@@ -33,7 +33,7 @@
           <markdown-it-vue :class="md_text" :content="blog.summary" />
         </v-card-text>
         <v-card-actions>
-          <v-alert width="100%"  color="grey" class="text-center headline">
+          <v-alert width="100%" color="grey" class="text-center headline">
             Read More
           </v-alert>
         </v-card-actions>
