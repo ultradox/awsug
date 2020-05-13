@@ -35,20 +35,36 @@ npm run serve
 * Refactor some components for reusability / general code cleanup
 * AWS Certification Leaderboard
 
+
 ## Recent work
-Managed to get unauthenticated users read access to the Post entity..
+Restricting Access to Amazon S3 Content by Using an Origin Access Identity 
 
-Created a new IAM policy: appsyncGraphqlReadAccess attached to appsyncGraphqlRole attached to Cognito "everyone" group
+Did some further digging... amplify creates a CloudFront distribution... managed by AWS, and not visible in your account CloudFront console. Observe the Route 53 Alia record: d2*******8tg.cloudfront.net. After adding hosting with CloudFront and S3 with `amplify add hosting` I get dh*******4ob.cloudfront.net.
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "appsync:GraphQL",
-            "Resource": [
-                "arn:aws:appsync:ap-southeast-2:xxxxx:apis/xxxxx/types/Query/fields/*"
-            ]
-        }
-    ]
-}
+To manage access to the image bank served from an independent S3 bucket, setup new CloudFront distribution to front the image bank.
+
+The next question: If Amplify manages the CloudFront distribution for the app, how is that configured?
+
+## Ref: Question on StackOverflow
+
+https://stackoverflow.com/questions/61656125/aws-amplify-cli-cloudfront-s3-restrictions/61746792#61746792
+
+When hosting a site with AWS S3 and CloudFront, it's possible to [restrict access to content that you serve from Amazon S3 buckets](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html). I want to restrict access to assets on S3 to my Amplify App (CDN).
+
+Is it possible to achieve the same restriction with AWS Amplify? After deploying my AWS Amplify App, I don't see a CloudFront distribution. The documentation states: "The AWS Amplify Console leverages the Amazon CloudFront Global Edge Network to distribute your web app globally" ([FAQ, Hosting](https://aws.amazon.com/amplify/console/faqs/)).
+
+### Original Answer
+
+I did some research and found it is possible to restrict access to S3 from a CloudFront distribution. In order to configure your CloudFront distribution using the Amplify CLI, add hosting: $ amplify add hosting
+
+The relevant documentation is [here](https://docs.amplify.aws/cli/hosting#using-aws-amplify-console); it states there are two overall categories of hosting:
+
+    - Using AWS Amplify Console
+    - Using S3 and CloudFront (prod stage)
+
+In the past, I only ever used the Amplify Console to associate a custom domain to my app. I didn't understand why I couldn't find a CloudFront distribution. After running $ amplify add hosting and selecting:
+
+    - Select the plugin module to execute: Amazon CloudFront and S3
+    - Select the environment setup: PROD (S3 with CloudFront using HTTPS)
+
+Followed by $ amplify publish. I waited about half an hour later and voila! There's now a CloudFront distribution fronting my web app, with Route 53 automatically configured 🤓
