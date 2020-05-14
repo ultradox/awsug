@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  EnvType: 
+    Description: The environment type
+    Type: String
+    Default: dev
+    AllowedValues: 
+    - prod
+    - dev
+    ConstraintDescription: must be either prod or dev
+Conditions:
+  IsDevelopment: !Equals [!Ref EnvType, 'dev']
+  IsProduction: !Equals [!Ref EnvType, 'prod']
+Resources:
+  ImageDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+        - DomainName: awsug-image-bank.s3.amazonaws.com
+          Id: myS3Origin
+          S3OriginConfig:
+            OriginAccessIdentity: !Join ['', ['origin-access-identity/cloudfront/', !Ref CloudFrontOAI]]
+        Enabled: 'true'
+        Comment: AWS-UG Image Bank
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - HEAD
+          - GET
+          TargetOriginId: myS3Origin
+          ForwardedValues:
+            QueryString: 'false'
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: allow-all
+        PriceClass: PriceClass_All
+        Restrictions:
+          GeoRestriction:
+            RestrictionType: none
+            # Locations:
+            # - AQ
+            # - CV
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: 'true'
+      Tags: 
+        - Key: Environment
+          Value: !Ref EnvType
+        - Key: 'Resource Identity'
+          Value: 'AWS User Group CloudFront Distribution'
+        - Key: 'Application:FunctionalRole'
+          Value: Storage
+        - Key: 'Application:Purpose'
+          Value: 'Storage of code artefacts'
+  CloudFrontOAI:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'access-identity-awsug-image-bank-cfn.s3.amazonaws.com'
+  WebAppBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: "Retain"
+    Properties:
+      AccessControl: Private
+      BucketName: "awsug-image-bank-cfn"
+  WebAppBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebAppBucket
+      PolicyDocument:
+        Statement:
+        - Action: s3:GetObject
+          Effect: Allow
+          Principal:
+            CanonicalUser: !GetAtt CloudFrontOAI.S3CanonicalUserId
+          Resource: !Join ['', ['arn:aws:s3:::', !Ref 'WebAppBucket', /*]]
