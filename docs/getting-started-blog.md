@@ -1,16 +1,24 @@
+# TITLE
+----------------------------------------------------
+Try our new Content Management System (CMS)
+
+# SOCLINK
+------------------------------------------------------
+[LinkedIn](https://www.linkedin.com/in/carlos-reyneke-636037108/)
+
 # SUMMARY
 ---------------------------------------------------------------------
 
+# Check out our new serverless blogging engine 👽
 I'm stoked to present the AWS User Group new blogging thing  🎉 It uses [AWS Amplify development platform](https://aws.amazon.com/amplify/), [Vue.js](https://vuejs.org/), and a couple of other AWS services in the background. 
 
 In this post, I'd like to walk you through the process of submitting your own content to the site. It's quick and easy. All you need is to register an account, prepare your content using [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet), and submit for publication. Next time, we'll take a closer look at the architecture and the [code base](https://github.com/ultradox/awsug).
 
-![Photo by Glenn Carstens-Peters on Unsplash](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/get-blogging-sm.jpg "Get Bloggin!")
+![Photo by Glenn Carstens-Peters on Unsplash](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/get-blogging-sm.jpg "Get Bloggin!")
 
 
 # CONTENT
 ----------------------------------------------------------------------
-[LinkedIn](https://www.linkedin.com/in/carlos-reyneke-636037108/)
 
 # AWS User Group Blogging
 > Estimated 5 minute read ⏱
@@ -29,22 +37,22 @@ Here's the steps to publish your content:
 ## Register and sign in
 Once you're signed in, you'll be taken to the members only area.
 
-![Members only](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/welcome-member.jpg "Members only")
+![Members only](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/welcome-member.jpg "Members only")
 
 ## Create a new blog
 Now select BLOG from the navigation bar. You'll notice a button: ""My Blogs", click that, then press "Write a Blog".
 
-![Write a new blog](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/welcome-blog-portal.jpg "Write a new blog")
+![Write a new blog](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/welcome-blog-portal.jpg "Write a new blog")
 
 When you first create a blog, you must submit content for all the fields on the form. If you don't have your content ready, generate some [Lorem Ipsum](https://www.lipsum.com/).
 
 But before you can fill anything in, you must agree to the community standards.
 
-![Community Standards](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/community-norms.jpg "Community Standards")
+![Community Standards](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/community-norms.jpg "Community Standards")
 
 Once you've agreed, you'll be asked to provide a Blog Title, Author and a link to any social media identity.
 
-![Basic information](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/community-standards.jpg "Basic information")
+![Basic information](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/community-standards.jpg "Basic information")
 
 ## Manage your Content
 
@@ -53,28 +61,28 @@ Next, a blog **summary** of no more than 1000 characters. Your blog content can 
 ### Write your content
 Don't be shy now. **Always remember to save.** Also, you might wanna try distraction free mode.
 
-![Distraction Free](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/distraction-free.jpg "Distraction Free")
+![Distraction Free](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/distraction-free.jpg "Distraction Free")
 
 ## Ready to publish 💕
 Good to go? Hit Publish and confirm you're ready.
 
-![Publish It](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/publish-it.jpg "Publish It")
+![Publish It](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/publish-it.jpg "Publish It")
 
 Once you've submitted a blog for publication, you can't edit it until it has been reviewed.
 
-![Under Review](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/under-review.jpg "Under Review")
+![Under Review](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/under-review.jpg "Under Review")
 
 ## Site admins
 Members of the user group internal organisers can get added to the `admin` user group. 
 
 Let's say the site admin **Dullie** checks in. There might be nothing...
 
-![No new speakers, no new blogs](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/admin-portal-empty.jpg "No new speakers, no new blogs")
+![No new speakers, no new blogs](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/admin-portal-empty.jpg "No new speakers, no new blogs")
 
 Unbeknownst to Dullie, in a different part of town, Ultradox is just finishing off his first blog for an eclectic user group[^1]. An hour later, Dullie gets an email notifying him a new blog has been submitted for review! He checks in to find a literary gem, makes sure the hyperlinks are kosher, then hits approve. Your blog goes live instantanously 🔥🔥🔥
 
-![New Post](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/welcome-admin.jpg "New Post")
+![New Post](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/welcome-admin.jpg "New Post")
 
-![Approve Publication](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-1-getting-started/approve-publication.jpg "Approve Publication")
+![Approve Publication](https://d25nsddk6i6506.cloudfront.net/blog-1-getting-started/approve-publication.jpg "Approve Publication")
 
 [^1]: **eclectic**, philosophical word origin: denoting or belonging to a class of ancient philosophers who did not belong to or found any recognized school of thought but selected doctrines from various schools of thought.

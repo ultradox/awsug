@@ -168,9 +168,9 @@ export default {
     card: {
       title: "New Zealand's own user-run, user-focused AWS community.",
       src:
-        "https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/logo-onblack-wide.png",
+        "https://d25nsddk6i6506.cloudfront.net/logo-onblack-wide.png",
       srcWide:
-        "https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/logo-onblack-xwide.png",
+        "https://d25nsddk6i6506.cloudfront.net/logo-onblack-xwide.png",
       flex: 12
     }
   })

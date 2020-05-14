@@ -34,7 +34,7 @@
     <v-toolbar
       dark
       prominent
-      src="https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/pawel-czerwinski2-nav.jpg"
+      src="https://d25nsddk6i6506.cloudfront.net/pawel-czerwinski2-nav.jpg"
     >
       <v-app-bar-nav-icon
         @click="toggleSideNav"
@@ -46,7 +46,7 @@
             <v-img
               alt="AWS User Group Logo"
               class="mr-3 mt-5"
-              src="https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/logo-onblack-simple.png"
+              src="https://d25nsddk6i6506.cloudfront.net/logo-onblack-simple.png"
               transition="scale-transition"
               :width="$vuetify.breakpoint.mdAndUp ? 184 : 130"
             />

@@ -2,6 +2,10 @@
 ----------------------------------------------------
 AWS Amplify Multi-Auth GraphQL
 
+# SOCLINK
+------------------------------------------------------
+[LinkedIn](https://www.linkedin.com/in/carlos-reyneke-636037108/)
+
 # SUMMARY
 ----------------------------------------------------
 # AWS AppSync GraphQL API Security 🔥🔐😻
@@ -9,22 +13,22 @@ In the preceding blog, we took a look at the blogging engine used to manage user
 
 In this blog post, we look at the backend configuration managed and deployed with AWS [Amplify Framework](https://docs.amplify.aws/). In particular, we do a deep dive on the different authorization modes available to secure GraphQL APIs, and look at their implementation on this website's blogging engine. Enjoy ❣️
 
-![Secure this site](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/hackers-beware.jpg "Secure this site")
-
-# SOCLINK
-------------------------------------------------------
-[LinkedIn](https://www.linkedin.com/in/carlos-reyneke-636037108/)
+![Secure this site](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/hackers-beware.jpg "Secure this site")
 
 # CONTENT
 ------------------------------------------------------
 # AWS AppSync GraphQL API Security 🔥🔐😻
 > Estimated 12+ hours read ⏱ `if you follow along ;)`
 
-Are you curious to know if your original content is safe on this site? Let's take a closer look at the blogging engine we use to manage the blog your reading at this very moment. Pure _recursive_ joy❣️  Feel free at any time to **[join the fun](https://www.awsug.nz/blog-admin)**. You can also read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details on getting started.
+Securing serverless applications is a big topic. Let's take a closer look at one aspect in particular: GraphQL API Authorization. In this blog, I take a closer look at the blogging engine we use to manage the blog your reading at this very moment. Pure _recursive_ joy❣️  Feel free at any time to **[join the fun](https://www.awsug.nz/blog-admin)**. You can also read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details on getting started.
+
+This blog is not written as a "follow along" (although you certain can). Instead I'm writing this after reading two articles in particular:
+1. Nader Dabit, **[Using multiple authorization types with AWS AppSync GraphQL APIs](https://aws.amazon.com/blogs/mobile/using-multiple-authorization-types-with-aws-appsync-graphql-apis/)**
+2. FullstackPho, **[AWS Amplify Multi-Auth GraphQL — Public Read and Authenticated Create, Update, Delete](https://medium.com/@fullstackpho/aws-amplify-multi-auth-graphql-public-read-and-authenticated-create-update-delete-1bf5443b0ad1)**
+
+I was excited to learn how elegantly GraphQL API's can be secured, and wanted to learn more by applying it practically and writing about it at the same time. If you've been thinking about securing your GraphQL API's for your Amplify Apps, but haven't delved much into it, I hope this blog may help you on your journey.
 
 # Authorizing access to GraphQL API's
-
-Securing serverless applications is a big topic. Let's take a closer look at one aspect in particular: GraphQL API Authorization. 
 
 According to Nader Dabit (**[AWS, May 2019](https://aws.amazon.com/blogs/mobile/using-multiple-authorization-types-with-aws-appsync-graphql-apis/)**) "AWS AppSync supports configuring more than one **authorization type for GraphQL APIs**. You can now configure a single GraphQL API to deliver private and public data. Private data requires authenticated access using authorization mechanisms such as IAM, Amazon Cognito User Pools, and OIDC. _Public data does not require authenticated access and is delivered through authorization mechanisms such as API Keys._"
 
@@ -37,27 +41,26 @@ Turns out... that last statement presented some challenges. After applying API K
 ## Users
 
 I identified three types of users for the site:
-1. **Anonymous users** casually browse the site; they can read content (blogs and comments), but can't create or modify any content
-2. **Registered users** can create new blogs and comments
-3. **Site administrators** review and approve DRAFT blogs submitted by awesome bloggers for publication
+1. **Anonymous users** casually browse the site; they can read content (blogs and comments), but can't create or modify any content. They can't see draft blogs of other users.
+2. **Registered users** is anyone who has registered an account with this website, and are therefore included in the Cognito user pool. I'd say a fairly small subset of those users might choose to submit a draft for publication, but technically any registered user can create new draft blogs. Any registered user can also comment on published blog posts (the feature will be available soon :)
+3. **Site administrators** review and approve DRAFT blogs submitted by awesome bloggers for publication. Site administrators are notified when a draft blog is submitted for publication. They can either approve or decline publication. Once a draft is published, it shows up on the live website immediately. 
 
-![Users](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/users.jpg "Users")
+![Users](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/users.jpg "Users")
 
 ## Entities
 
 I also identified three Dynamo-DB entities I need to keep track of: 
-1. **Drafts** are blogs-in-the-making; authenticated users should have full [CRUD permissions](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on their own drafts
-2. **Blogs** are drafts that got published; a.k.a. **Blog Posts** or singular a **Post**; anyone is able to read a Blog/Post and it's comments; only a site administrator can create, update and delete a Blog/Post.
+1. **Drafts** are blogs-in-the-making; authenticated users should have full [CRUD permissions](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) on their own drafts. When a blogger submits his draft for publication, the draft cannot be edited until the review has been done. A draft will be approved or declined for publication. You can update your draft and submit changes for publication as often as you want or need to.
+2. **Blogs** are drafts that got published; a.k.a. **blog posts** or singular **post**; anyone is able to read a blog post and it's comments; site administrators can create, update or delete a published blog post. Authors can submit changes for review on published blogs as often as they want or need.
 3. **Comments** are attached to blogs - an upcoming feature ;)
 
-![Entities](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/entities.jpg "Entities")
-
+![Entities](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/entities.jpg "Entities")
 
 ## Use Cases
 
 The diagram below illustrates each use case in relation to our users and database entities:
 
-![User API access Privileges](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/data-and-user-access-privileges.jpg "User API Access Privileges")
+![User API access Privileges](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/data-and-user-access-privileges.jpg "User API Access Privileges")
 
 There's a fair bit going on here. Let's take a closer a look at the subset of rules as applied to the **Draft** entity.
 
@@ -104,7 +107,7 @@ type Draft
 
 ## AWS Design from context of the Draft entity
 Here's a look at the AWS resources in terms of how users interact with Draft entity:
-![DynamoDB Draft entity and affected/ing services](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/aws-design-drafts.jpg "DynamoDB Draft entity and affected/ing services")
+![DynamoDB Draft entity and affected/ing services](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/aws-design-drafts.jpg "DynamoDB Draft entity and affected/ing services")
 
 ## Blog Post Entity
 
@@ -155,26 +158,26 @@ It's this last rule that had me going for a while. If you remember right at the 
 
 ## Amplify CLI changes needed
 
-For the `@aws_iam` to work, you'll need to modify your Amplify GraphQL API using the Amplify CLI:
+For the `@aws_iam` to work, you'll need to modify your Amplify GraphQL API using the Amplify CLI. I was using `@aws-amplify/cli@4.19.0` at the time of writing.
 
-![Amplify GraphQL API](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/aws-amplify-graphql-api.jpg "Amplify GraphQL API")
+![Amplify GraphQL API](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/aws-amplify-graphql-api.jpg "Amplify GraphQL API")
 
 To ensure all newly registered users are automatically added to the `everyone` Cognito User Group, modify use `$ amplify auth update`
 
-![Amplify auth update](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/aws-amplify-auth-update.jpg "Amplify auth update")
+![Amplify auth update](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/aws-amplify-auth-update.jpg "Amplify auth update")
 
 ## AWS Design from context of the Draft entity
 Here's a look at the AWS resources in terms of how users interact with Draft entity:
-![DynamoDB Draft entity and affected/ing services](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/aws-design-post.jpg "DynamoDB Draft entity and affected/ing services")
+![DynamoDB Draft entity and affected/ing services](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/aws-design-post.jpg "DynamoDB Draft entity and affected/ing services")
 
 You can see Amplify provisioned additional resources, including a Post Confirmation lambda function trigger to add all new registrants to the "everyone" user group on Cognito.
 
 But there's one bit missing - an IAM role with appropriate policy attached to the Cognito user group.
 
-![Cognito User Group IAM Role ARN](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/cognito-user-group-role-arn.jpg "Cognito User Group IAM Role ARN")
+![Cognito User Group IAM Role ARN](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/cognito-user-group-role-arn.jpg "Cognito User Group IAM Role ARN")
 
 And the policy...
-![IAM Role Policy](https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/blog-2-technical-overview/cognito-user-group-role-policy.jpg "IAM Role Policy")
+![IAM Role Policy](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/cognito-user-group-role-policy.jpg "IAM Role Policy")
 
 
 ## JavaScript / Vue Implementation for Draft
@@ -232,7 +235,7 @@ import { getPost } from "../graphql/queries";
 - Nader Dabit, "**Using multiple authorization types with AWS AppSync GraphQL APIs**" [available online](https://aws.amazon.com/blogs/mobile/using-multiple-authorization-types-with-aws-appsync-graphql-apis/)
 
 - Jane Shen, "**Supporting backend and internal processes with AWS AppSync multiple authorization types**" [available online](https://aws.amazon.com/blogs/mobile/supporting-backend-and-internal-processes-with-aws-appsync-multiple-authorization-types/)
-- Orjiewuru Kingdom, "**GraphQL Queries, Mutations and Subscriptions**" [available online](https://medium.com/software-insight/graphql-queries-mutations-and-subscriptions-286522b263d9)\
+- Orjiewuru Kingdom, "**GraphQL Queries, Mutations and Subscriptions**" [available online](https://medium.com/software-insight/graphql-queries-mutations-and-subscriptions-286522b263d9)
 
 - AWS AppSync documentation, "**AWS AppSync Security**" [available online](https://docs.aws.amazon.com/appsync/latest/devguide/security.html)
 

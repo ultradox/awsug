@@ -12,5 +12,17 @@ Wait for it to finish...
 Get the Distribution ID from CloudFront console when you're ready:
 
 ```
-aws cloudfront get-distribution --id EK4HQYEDRURRB --profile awsug
+aws cloudfront get-distribution --id XXXXXX --profile awsug
+```
+
+## Manage images
+
+**DOWNLOAD**
+```
+aws s3 sync s3://awsug-image-bank-cfn . --exclude "*.DS_Store"  --profile awsug
+```
+
+**UPLOAD**
+```
+aws s3 sync . s3://awsug-image-bank-cfn --exclude "*.DS_Store"  --profile awsug
 ```
