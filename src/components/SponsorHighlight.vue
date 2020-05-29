@@ -39,9 +39,9 @@ export default {
     card: {
       title: "Cheers The Instillery 🍻🍾",
       src:
-        "https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/sponsors/the-instillery-2020.jpg",
+        "https://d25nsddk6i6506.cloudfront.net/sponsors/the-instillery-2020.jpg",
       srcMobile:
-        "https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/sponsors/the-instillery-2020-mobile.jpg",
+        "https://d25nsddk6i6506.cloudfront.net/sponsors/the-instillery-2020-mobile.jpg",
       flex: 12
     }
   })

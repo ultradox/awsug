@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-img
-      src="https://awsug-image-bank.s3-ap-southeast-2.amazonaws.com/meetup1.jpg"
+      src="https://d25nsddk6i6506.cloudfront.net/meetup1.jpg"
       class="white--text align-end"
       gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
       height="250px"
