@@ -17,6 +17,7 @@ export const getSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -42,6 +43,7 @@ export const listSpeakerEois = /* GraphQL */ `
         archived
         sortHash
         createdAt
+        updatedAt
         owner
       }
       nextToken
@@ -64,6 +66,7 @@ export const getDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -97,6 +100,7 @@ export const listDrafts = /* GraphQL */ `
         rvDate
         pubDate
         createdAt
+        updatedAt
         owner
       }
       nextToken
@@ -134,6 +138,7 @@ export const speakerEoiByCreatedAt = /* GraphQL */ `
         archived
         sortHash
         createdAt
+        updatedAt
         owner
       }
       nextToken
@@ -171,6 +176,7 @@ export const draftByCreatedAt = /* GraphQL */ `
         rvDate
         pubDate
         createdAt
+        updatedAt
         owner
       }
       nextToken
@@ -191,6 +197,7 @@ export const getPost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -199,6 +206,7 @@ export const getPost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -233,6 +241,7 @@ export const listPosts = /* GraphQL */ `
         pubDate
         lastModified
         createdAt
+        updatedAt
         comments {
           nextToken
         }
@@ -270,6 +279,7 @@ export const postByPubDate = /* GraphQL */ `
         pubDate
         lastModified
         createdAt
+        updatedAt
         comments {
           nextToken
         }
@@ -287,6 +297,7 @@ export const getComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }
@@ -305,6 +316,7 @@ export const listComments = /* GraphQL */ `
         userId
         userName
         createdAt
+        updatedAt
         owner
       }
       nextToken
@@ -335,6 +347,7 @@ export const commentByCreatedAt = /* GraphQL */ `
         userId
         userName
         createdAt
+        updatedAt
         owner
       }
       nextToken

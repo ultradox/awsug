@@ -20,6 +20,7 @@ export const createSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -43,6 +44,7 @@ export const updateSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -66,6 +68,7 @@ export const deleteSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -89,6 +92,7 @@ export const createDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -112,6 +116,7 @@ export const updateDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -135,6 +140,7 @@ export const deleteDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -156,6 +162,7 @@ export const createPost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -164,6 +171,7 @@ export const createPost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -188,6 +196,7 @@ export const updatePost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -196,6 +205,7 @@ export const updatePost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -220,6 +230,7 @@ export const deletePost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -228,6 +239,7 @@ export const deletePost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -247,6 +259,7 @@ export const createComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }
@@ -263,6 +276,7 @@ export const updateComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }
@@ -279,6 +293,7 @@ export const deleteComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }

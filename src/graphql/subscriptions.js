@@ -17,6 +17,7 @@ export const onCreateSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -37,6 +38,7 @@ export const onUpdateSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -57,6 +59,7 @@ export const onDeleteSpeakerEoi = /* GraphQL */ `
       archived
       sortHash
       createdAt
+      updatedAt
       owner
     }
   }
@@ -77,6 +80,7 @@ export const onCreateDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -97,6 +101,7 @@ export const onUpdateDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -117,6 +122,7 @@ export const onDeleteDraft = /* GraphQL */ `
       rvDate
       pubDate
       createdAt
+      updatedAt
       owner
     }
   }
@@ -135,6 +141,7 @@ export const onCreatePost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -143,6 +150,7 @@ export const onCreatePost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -164,6 +172,7 @@ export const onUpdatePost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -172,6 +181,7 @@ export const onUpdatePost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -193,6 +203,7 @@ export const onDeletePost = /* GraphQL */ `
       pubDate
       lastModified
       createdAt
+      updatedAt
       comments {
         items {
           id
@@ -201,6 +212,7 @@ export const onDeletePost = /* GraphQL */ `
           userId
           userName
           createdAt
+          updatedAt
           owner
         }
         nextToken
@@ -217,6 +229,7 @@ export const onCreateComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }
@@ -230,6 +243,7 @@ export const onUpdateComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }
@@ -243,6 +257,7 @@ export const onDeleteComment = /* GraphQL */ `
       userId
       userName
       createdAt
+      updatedAt
       owner
     }
   }
