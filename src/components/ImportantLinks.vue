@@ -84,7 +84,7 @@ export default {
       {
         text: "Register as a Speaker",
         icon: "mdi-account-voice",
-        link: "/speaker-registration"
+        link: "/speaker"
       }
       // { text: "Contact the Organisers", icon: "mdi-send", link: "/" }
     ]
