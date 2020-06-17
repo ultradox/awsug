@@ -90,7 +90,8 @@ const routes = [
   {
     path: "/speaker",
     name: "speaker",
-    component: () => import("../views/SpeakerRegistration")
+    component: () => import("../views/SpeakerRegistration"),
+    meta: { requiresAuth: true }
   },
   {
     path: "/speakers",

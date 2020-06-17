@@ -101,7 +101,7 @@
         <template v-slot:activator="{ on }">
           <v-text-field
             v-model="state.preferredSpeakerDate2"
-            label="Alternate Speaker Date"
+            label="Optional Alternate Speaker Date"
             prepend-icon="mdi-calendar"
             readonly
             v-on="on"
@@ -216,7 +216,7 @@ export default {
       description: "",
       estimatedLength: "",
       preferredSpeakerDate: "",
-      preferredSpeakerDate2: "Not specified",
+      preferredSpeakerDate2: "",
       sortHash: "Sorted"
     },
 

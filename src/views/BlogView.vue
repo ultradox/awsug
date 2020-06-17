@@ -33,6 +33,77 @@
               <v-card-text>
                 <markdown-it-vue :content="blog.content" />
               </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-tooltip left>
+                  <template v-slot:activator="{ on }">
+                    <v-btn fab v-on="on" @click="listComments" class="ma-6">
+                      <v-icon color="info"
+                        >{{
+                          showCommentsBool
+                            ? "mdi-chevron-up"
+                            : "mdi-chevron-down"
+                        }}
+                      </v-icon>
+                    </v-btn>
+                  </template>
+                  <span>View Comments</span>
+                </v-tooltip>
+
+                <v-tooltip right>
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      fab
+                      right
+                      class="ma-6"
+                      color="primary"
+                      v-on="on"
+                      v-if="userId"
+                      @click="addCommentBool = !addCommentBool"
+                    >
+                      <v-icon color="white"
+                        >mdi-comment-text-multiple-outline</v-icon
+                      ></v-btn
+                    >
+                    <span v-else class="info--text"
+                      >You can view comments.<br />
+                      <router-link to="/signup">Sign Up/In</router-link>
+                      to add comments.</span
+                    >
+                  </template>
+                  <span>Add New Comment</span>
+                </v-tooltip>
+                <v-spacer></v-spacer>
+              </v-card-actions>
+              <v-row justify="center">
+                <v-dialog
+                  v-model="addCommentBool"
+                  fullscreen
+                  hide-overlay
+                  transition="dialog-bottom-transition"
+                  persistent
+                >
+                  <AddComment
+                    v-if="addCommentBool"
+                    @refresh-comments="refreshComments"
+                    v-bind:anchor="item.anchor"
+                    v-bind:userName="userName"
+                    v-bind:userId="userId"
+                  />
+                  <v-btn
+                    color="secondary darken-1"
+                    x-large
+                    @click="addCommentBool = false"
+                    >Close</v-btn
+                  >
+                </v-dialog>
+              </v-row>
+              <v-expand-transition>
+                <div v-show="showCommentsBool">
+                  <v-divider></v-divider>
+                  <ListComments :key="componentKey" v-bind:anchor="anchor" />
+                </div>
+              </v-expand-transition>
             </v-card>
           </div> </v-col
       ></v-row>
@@ -55,6 +126,8 @@ import { getPost } from "../graphql/queries";
 import moment from "moment";
 
 import MarkdownItVue from "markdown-it-vue";
+import ListComments from "../components/CommentsList";
+import AddComment from "../components/CommentNew";
 import "markdown-it-vue/dist/markdown-it-vue.css";
 
 export default {
@@ -64,7 +137,9 @@ export default {
     review: Boolean
   },
   components: {
-    MarkdownItVue
+    MarkdownItVue,
+    ListComments,
+    AddComment
   },
   data() {
     return {
@@ -93,6 +168,12 @@ export default {
       } catch (e) {
         this.err = e.errors[0].message || e;
       }
+    },
+    listComments() {
+      this.showCommentsBool = !this.showCommentsBool;
+    },
+    refreshComments() {
+      this.componentKey += 1;
     }
   },
   mounted() {

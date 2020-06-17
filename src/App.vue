@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <NavBar />
-    <v-content>
+    <v-main>
       <transition name="fade">
         <router-view />
       </transition>
-    </v-content>
+    </v-main>
     <NavFooter :key="componentKey" />
   </v-app>
 </template>
