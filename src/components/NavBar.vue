@@ -92,7 +92,8 @@ export default {
     NavItems: [
       { title: "Home", link: "/" },
       { title: "Blog", link: "/blog" },
-      { title: "Members", link: "/members" }
+      { title: "Members", link: "/members" },
+      { title: "Speakers", link: "/speaker" }
     ]
   }),
   methods: {
