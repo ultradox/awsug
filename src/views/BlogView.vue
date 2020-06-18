@@ -58,7 +58,7 @@
                       class="ma-6"
                       color="primary"
                       v-on="on"
-                      v-if="userId"
+                      v-if="userName"
                       @click="addCommentBool = !addCommentBool"
                     >
                       <v-icon color="white"
@@ -86,7 +86,8 @@
                   <AddComment
                     v-if="addCommentBool"
                     @refresh-comments="refreshComments"
-                    v-bind:anchor="item.anchor"
+                    v-bind:anchor="blog.anchor"
+                    v-bind:blogTitle="blog.title"
                     v-bind:userName="userName"
                     v-bind:userId="userId"
                   />
@@ -123,6 +124,7 @@
 <script>
 import API from "@aws-amplify/api";
 import { getPost } from "../graphql/queries";
+import { Auth } from "aws-amplify";
 import moment from "moment";
 
 import MarkdownItVue from "markdown-it-vue";
@@ -149,7 +151,9 @@ export default {
       componentKey: 0,
       loading: true,
       err: "",
-      info: ""
+      info: "",
+      userName: "",
+      userId: ""
     };
   },
   methods: {
@@ -174,11 +178,22 @@ export default {
     },
     refreshComments() {
       this.componentKey += 1;
+    },
+    authUser() {
+      Auth.currentAuthenticatedUser()
+        .then(user => {
+          this.userName = user.username;
+          this.userId = user.attributes.sub;
+          this.userGroup =
+            user.signInUserSession.accessToken.payload["cognito:groups"];
+        })
+        .catch(err => (this.err = err));
     }
   },
   mounted() {
     this.$vuetify.theme.dark = false;
     this.getBlog();
+    this.authUser();
   }
 };
 </script>

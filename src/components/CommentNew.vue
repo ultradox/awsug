@@ -5,8 +5,10 @@
         <v-img
           class="white--text align-end"
           height="250px"
-          src="https://s3-ap-southeast-2.amazonaws.com/sunriseministries.life.imagebank/web/newdawn/peace.jpg"
-          ><v-card-title class="headline">2 Timothy 2:23-26</v-card-title>
+          src="https://d25nsddk6i6506.cloudfront.net/pawel-czerwinski2-nav.jpg"
+          ><v-card-text class="headline"
+            ><strong>{{ blogTitle }}</strong> <br />Comment...</v-card-text
+          >
         </v-img>
       </v-card-title>
       <v-card-text>
@@ -54,7 +56,7 @@
             ref="form"
             v-model="valid"
             lazy-validation
-            disabled="disableForm"
+            :disabled="disableForm"
           >
             <br />
             <v-textarea
@@ -116,6 +118,7 @@ export default {
   name: "CreateComment",
   props: {
     anchor: String,
+    blogTitle: String,
     userName: String,
     userId: String
   },

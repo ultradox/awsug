@@ -24,7 +24,7 @@
             </v-card-text>
             <v-card-actions>
               <!-- Edit Comment -->
-              <v-btn
+              <!-- <v-btn
                 small
                 fab
                 right
@@ -34,20 +34,19 @@
                 v-if="comment.userId === userId"
               >
                 <v-icon color="warning">mdi-square-edit-outline</v-icon></v-btn
-              >
+              > -->
               <!-- Delete Comment -->
-              <v-btn
+              <!-- <v-btn
                 small
                 fab
                 right
                 color="warning darken-1"
                 class="mx-2"
-                @click="comment.deleteCommentBool = !comment.deleteCommentBool"
+                @click="deleteComment(comment.id)"
                 v-if="comment.userId === userId"
-                :disabled="!!comment.deleteCommentBool"
               >
                 <v-icon color="black">mdi-delete-outline</v-icon></v-btn
-              >
+              > -->
             </v-card-actions>
           </v-card>
         </v-container>
@@ -109,6 +108,9 @@ export default {
         this.error = e;
       }
     },
+    // deleteComment(id) {
+    //   console.log(id);
+    // },
     customFormatter(date) {
       return moment(date).format("dddd DD MMM YYYY, h:mm a");
     },
