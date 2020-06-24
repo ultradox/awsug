@@ -2,7 +2,6 @@ var AWS = require("aws-sdk");
 var ses = new AWS.SES();
 
 var RECEIVER = "enquiries@awsug.nz";
-var BCC = "carlos@cloudbased.nz";
 var SENDER = "admin@awsug.nz";
 
 var response = {

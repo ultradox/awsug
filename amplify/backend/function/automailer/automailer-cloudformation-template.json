@@ -67,8 +67,8 @@
 				"Runtime": "nodejs12.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-awsug-playpen-164139-deployment",
-					"S3Key": "amplify-builds/automailer-38485948315538766955-build.zip"
+					"S3Bucket": "amplify-awsug-master-74529-deployment",
+					"S3Key": "amplify-builds/automailer-527a444761743039722f-build.zip"
 				}
 			}
 		},

@@ -18,7 +18,8 @@
             "function": {
                 "awsug1ae5855ePostConfirmation": {
                     "GROUP": "everyone"
-                }
+                },
+                "automailer": {}
             }
         }
     },
