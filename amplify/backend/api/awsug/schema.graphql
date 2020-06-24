@@ -33,6 +33,7 @@ type SpeakerEoi
     archived: Boolean
     sortHash: String!
     createdAt: String 
+    updatedAt: String
   }
 
 # draft needs public read access to prevent anchor hijacking
@@ -72,6 +73,7 @@ type Draft
     rvDate: String
     pubDate: String
     createdAt: String
+    updatedAt: String
   }
 
 type Post 
@@ -115,6 +117,7 @@ type Post
     pubDate: String!
     lastModified: String
     createdAt: String
+    updatedAt: String
     comments: [Comment] @connection(keyName: "byAnchor", fields: ["anchor"])
   }
 
@@ -156,4 +159,5 @@ type Comment
     userId: String!
     userName: String!
     createdAt: String
+    updatedAt: String
   }

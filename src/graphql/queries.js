@@ -18,7 +18,6 @@ export const getSpeakerEoi = /* GraphQL */ `
       sortHash
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -44,7 +43,6 @@ export const listSpeakerEois = /* GraphQL */ `
         sortHash
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
@@ -139,7 +137,6 @@ export const speakerEoiByCreatedAt = /* GraphQL */ `
         sortHash
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
