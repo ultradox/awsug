@@ -31,7 +31,7 @@
             ref="form"
             v-model="valid"
             lazy-validation
-            disabled="disableForm"
+            :disabled="disableForm"
           >
             <v-checkbox
               v-model="form.agreePolicy"

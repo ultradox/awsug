@@ -18,11 +18,11 @@ In this blog post, we look at the backend configuration managed and deployed wit
 # CONTENT
 ------------------------------------------------------
 # AWS AppSync GraphQL API Security 🔥🔐😻
-> Estimated 12+ hours read ⏱ `if you follow along ;)`
+> Estimated 12+ hours read ⏱ *if you follow along ;)*
 
-Securing serverless applications is a big topic. Let's take a closer look at one aspect in particular: GraphQL API Authorization. In this blog, I take a closer look at the blogging engine we use to manage the blog your reading at this very moment. Pure _recursive_ joy❣️  Feel free at any time to **[join the fun](https://www.awsug.nz/blog-admin)**. You can also read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details on getting started.
+Securing serverless applications is a big topic. Let's take a closer look at one aspect in particular: GraphQL API Authorization. In this blog, we go behind the scenes of the blogging engine used to manage and serve up the blog your reading at this very moment. _Recursive_ joy❣️  (Feel free at any time to **[join the fun](https://www.awsug.nz/blog-admin)**, or read **[part 1](https://www.awsug.nz/blog/aws-user-group-getting-started-blog)** for more details on getting started.)
 
-This blog is not written as a "follow along" (although you certain can). Instead I'm writing this after reading two articles in particular:
+This blog is not written as a "follow along". Instead I'm writing this after reading two articles in particular:
 1. Nader Dabit, **[Using multiple authorization types with AWS AppSync GraphQL APIs](https://aws.amazon.com/blogs/mobile/using-multiple-authorization-types-with-aws-appsync-graphql-apis/)**
 2. FullstackPho, **[AWS Amplify Multi-Auth GraphQL — Public Read and Authenticated Create, Update, Delete](https://medium.com/@fullstackpho/aws-amplify-multi-auth-graphql-public-read-and-authenticated-create-update-delete-1bf5443b0ad1)**
 
@@ -66,15 +66,15 @@ There's a fair bit going on here. Let's take a closer a look at the subset of ru
 
 ## The GraphQL Schema for Draft
 
-Refer to the `schema definition` below showing the **Draft** entity definition:
-- Because no public *read* access is required, the `@auth` mode is set to Cognito user pools only (i.e. no API-key or IAM `@auth` modes required yet)
-- The `@auth` rules enable *CRUD* operations for the **owner**, but *read*, *update* and *delete* only for site **administrators**
-- Using `@key` directive, defined custom primary index: `anchor` 
+Refer to the *schema definition* below showing the **Draft** entity definition:
+- Because no public *read* access is required, the *@auth* mode is set to Cognito user pools only (i.e. no API-key or IAM *@auth* modes required yet)
+- The *@auth* rules enable *CRUD* operations for the *owner*, but *read*, *update* and *delete* only for site *administrators*
+- Using *@key* directive, defined custom primary index: anchor
     - This lets us use a human-readable anchor as the primary DynamoDB lookup
-    - DynamoDB enforces a unique constraint on `anchor` (*primary* key n'all)
-- Define a Global Secondary Index (`byCreatedAt`) using a static sort hash, combined with a sort-key of `createdAt` date & timestamp
+    - DynamoDB enforces a unique constraint on *anchor* (primary key n'all)
+- Define a Global Secondary Index (*byCreatedAt*) using a static sort hash, combined with a sort-key of *createdAt* date & timestamp
 
-```
+```JavaScript
 type Draft
   @model 
   @aws_cognito_user_pools
@@ -113,7 +113,7 @@ Here's a look at the AWS resources in terms of how users interact with Draft ent
 
 Now that we've taken a look at the authorization mode for the **Draft** entity, let's turn our attention to that of a Blog **Post**. Remember, a Post is a published draft, and must be readable by all users: unauthorized and authorized. In addition, site admins alone have CRUD permissions on the Post entity.
 
-```
+```JavaScript
 type Post 
   @model @aws_iam @aws_cognito_user_pools
   @auth(
@@ -149,20 +149,20 @@ type Post
   }
 ```
 
-Notice we are now using two authorization types: `@aws_iam` and `@aws_cognito_user_pools`. Let's look at each of the rules in turn:
-- First rule states that Cognito users belonging to the `admin` group have `CRUD` permissions
-- Second rule says Cognito users belonging to the `everyone` group have `read` permissions
-- Finally, we see public `read` access is given through `@aws_iam` (`{allow: public provider: iam}`)
+Notice we are now using two authorization types: *@aws_iam* and *@aws_cognito_user_pools*. Let's look at each of the rules in turn:
+- First rule states that Cognito users belonging to the *admin* group have *CRUD* permissions
+- Second rule says Cognito users belonging to the *everyone* group have *read* permissions
+- Finally, we see public *read* access is given through *@aws_iam* (*{allow: public provider: iam}*)
 
 It's this last rule that had me going for a while. If you remember right at the beginning I quoted Nader Dabit's AWS article about authorization modes. It seems from that the suggestion is to use API Keys for public read access. When I tried that though, I found only authorized users could read a Post (anyone, not only the owner). To get read access for unauthorized users I followed along [these instructions](https://medium.com/@fullstackpho/aws-amplify-multi-auth-graphql-public-read-and-authenticated-create-update-delete-1bf5443b0ad1).
 
 ## Amplify CLI changes needed
 
-For the `@aws_iam` to work, you'll need to modify your Amplify GraphQL API using the Amplify CLI. I was using `@aws-amplify/cli@4.19.0` at the time of writing.
+For the *@aws_iam* to work, you'll need to modify your Amplify GraphQL API using the Amplify CLI. I was using *@aws-amplify/cli@4.19.0* at the time of writing.
 
 ![Amplify GraphQL API](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/aws-amplify-graphql-api.jpg "Amplify GraphQL API")
 
-To ensure all newly registered users are automatically added to the `everyone` Cognito User Group, modify use `$ amplify auth update`
+To ensure all newly registered users are automatically added to the *everyone* Cognito User Group, modify use *$ amplify auth update*
 
 ![Amplify auth update](https://d25nsddk6i6506.cloudfront.net/blog-2-technical-overview/aws-amplify-auth-update.jpg "Amplify auth update")
 
@@ -182,9 +182,9 @@ And the policy...
 
 ## JavaScript / Vue Implementation for Draft
 
-The section of code below is taken from the Vue file creating a new draft: `/src/views/BlogNew.vue`. Here are the main queries and mutations for the Draft entity in action:
+The section of code below is taken from the Vue file creating a new draft: */src/views/BlogNew.vue*. Here are the main queries and mutations for the Draft entity in action:
 
-```
+```JavaScript
 import API, { graphqlOperation } from "@aws-amplify/api";
 import { createDraft } from "../graphql/mutations";
 import { getDraft } from "../graphql/queries";
@@ -207,14 +207,15 @@ async submit() {
         ...
     } 
 ```
+
 Quick and easy. I don't even have to worry about specifying the owner of the Draft. As long as I understand the use case, implementing at the most rudimentary level proves a breeze. Now if any authorized User asks for Drafts, the database only ever returns records **owned** by that user. No further filtering required.
 
-If you look carefully at the `/amplify/backend/api/awsug/schema.graphql` schema definition in the [repo](https://github.com/ultradox/awsug), you'll notice there is no owner column. But if you look at the DynamoDB table that gets created when you push your backend changes with the CLI `$ amplify push` command, you'll see a column automatically added to the table: `owner` 🛸 whoeeee....
+If you look carefully at the `/amplify/backend/api/awsug/schema.graphql* schema definition in the [repo](https://github.com/ultradox/awsug), you'll notice there is no owner column. But if you look at the DynamoDB table that gets created when you push your backend changes with the CLI *$ amplify push* command, you'll see a column automatically added to the table: *owner* 🛸 whoeeee....
 
 ## JavaScript implementation for getPost
-If you look at `/src/views/BlogView.vue` you'll notice a different implementation of the GraphQL `query` to make use of IAM authorisation:
+If you look at */src/views/BlogView.vue* you'll notice a different implementation of the GraphQL *query* to make use of IAM authorisation:
 
-```
+```JavaScript
 import API from "@aws-amplify/api";
 import { getPost } from "../graphql/queries";
 
