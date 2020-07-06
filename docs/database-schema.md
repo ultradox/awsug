@@ -1,4 +1,4 @@
-# TITLE
+# TITLE  😼
 ----------------------------------------------------
 AWS Amplify Multi-Auth GraphQL
 
