@@ -8,71 +8,8 @@
         :height="$vuetify.breakpoint.mdAndUp ? '250px' : '150px'"
       >
       </v-img>
-      <!-- New Zealand's own user-run, user-focused AWS community. -->
+
       <v-card-title class="headline white--text">{{ card.title }}</v-card-title>
-      <v-card-text class="grey--text text--lighten-2">
-        <h1 class="title">
-          Have something on your mind? 🤨
-        </h1>
-        <p class="subtitle-1">
-          Publish your next AWS blog, article or poem using our fab website
-          💕simply
-          <router-link to="signup">sign up</router-link>, add content using
-          <a
-            href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
-            >MarkDown</a
-          >, submit for review, and voila! Checkout
-          <router-link to="blog/aws-user-group-getting-started-blog"
-            >this blog</router-link
-          >
-          for more details ❣️
-        </p>
-        <br />
-        <h1 class="title">
-          Changes with consequences
-        </h1>
-        <ul>
-          <li>
-            Due to
-            <a
-              href="https://docs.amplify.aws/lib/auth/getting-started/q/platform/js"
-              >@auth</a
-            >
-            backend changes our
-            <a href="https://aws.amazon.com/cognito/">AWS Cognito</a>
-            <a
-              href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"
-              >user pool</a
-            >
-            was recreated
-          </li>
-          <li>
-            <a
-              href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-import-users.html"
-              >Migrating users</a
-            >
-            seemed unfeasible with given time constraints
-          </li>
-          <li>
-            <b>Please accept our apologies.</b> Everyone who signed up in the
-            past:
-            <router-link to="signup"
-              ><span class="red--text"
-                >you'll have to sign up again</span
-              ></router-link
-            >
-            to access members-only features.
-          </li>
-        </ul>
-        <br />
-        <h2 class="title">And finally...</h2>
-
-        <p>
-          The <a href="https://github.com/ultradox/awsug">website repo</a> is
-          now in the public domain - PR's welcome :)
-        </p>
-      </v-card-text>
-
       <!-- Socialite-Mass Surveilance Icons -->
       <v-card-actions>
         <v-row>
@@ -101,6 +38,52 @@
         </v-row>
       </v-card-actions>
     </v-card>
+    <v-row justify="center">
+      <v-col cols="10" md="8">
+        <v-card class="pa-2" outlined tile>
+          <v-card-text class="grey--text text--lighten-2">
+            <h1 class="title">
+              Christchurch User Group Notice
+            </h1>
+            <h2 class="subtitle">
+              AWS Meet Up: Deep Racer Lunch & Learn 🏎
+            </h2>
+            <p>
+              The Christchurch team at Consegna are hosting a free AWS DeepRacer
+              Lunch & Learn for all those that are interested in getting their
+              foot in the door with DeepRacer specifically, or are just
+              interested in knowing more about the Machine Learning behind it.
+              <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/deep-learner.jpeg"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
+                height="250px"
+              >
+              </v-img>
+            </p>
+            <p>
+              This introductory session is meant to bring those that are keen,
+              up to speed with DeepRacer modelling and how to get started. All
+              are welcome to come along, and there will be lunch & light
+              refreshments provided.
+            </p>
+            <p>
+              Date & time: 12:00pm - 1:30pm, Friday 25th Sept 2020 (the day
+              after the Chch tech summit)
+            </p>
+            <p>
+              Location: The George Hotel, 50 Park Terrace, Christchurch Central
+            </p>
+            <br />
+            <p>
+              If this sounds like you, please
+              <a href="https://bit.ly/2R6VAs9">register today</a>
+              as space is limited.
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
     <!-- <v-row>
       <v-col cols="12">
         <SponsorHighlight />
@@ -142,7 +125,7 @@ export default {
     About,
     PastEvents,
     JoinUs,
-    ImportantLinks
+    ImportantLinks,
     // SponsorHighlight
   },
   data: () => ({
@@ -154,26 +137,24 @@ export default {
       // },
       {
         icon: "mdi-slack",
-        link: "https://slack-inviter-awsugnz.herokuapp.com/"
+        link: "https://slack-inviter-awsugnz.herokuapp.com/",
       },
       {
         icon: "mdi-facebook",
-        link: "https://www.facebook.com/awsugnz"
+        link: "https://www.facebook.com/awsugnz",
       },
       {
         icon: "mdi-linkedin",
-        link: "https://www.linkedin.com/groups/13751121/"
-      }
+        link: "https://www.linkedin.com/groups/13751121/",
+      },
     ],
     card: {
       title: "New Zealand's own user-run, user-focused AWS community.",
-      src:
-        "https://d25nsddk6i6506.cloudfront.net/logo-onblack-wide.png",
-      srcWide:
-        "https://d25nsddk6i6506.cloudfront.net/logo-onblack-xwide.png",
-      flex: 12
-    }
-  })
+      src: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-wide.png",
+      srcWide: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-xwide.png",
+      flex: 12,
+    },
+  }),
 };
 </script>
 
