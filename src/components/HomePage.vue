@@ -42,10 +42,59 @@
       <v-col cols="10" md="8">
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
-            <h1 class="title">
+            <h1>
+              AWS Security Workshop - You'll Need Own Laptop & AWS Account
+            </h1>
+            <hr><br>
+            <h3>
+              AWS Security workshop this October in Wellington at BNZ on The Terrace 🔐👍
+            </h3>
+            <p>
+              Level: Beginner to Intermediate.
+            </p>
+            <p>
+              If you're new to AWS, then please come along. Members of the committee will be there to assist you through the workshop.
+            </p>
+            <p>
+              What you'll need:
+              <ul>
+                <li>Your own AWS Account.</li>
+                <li>Your own laptop to participate in the security workshop</li>
+                <li>Remember to book if you want to come 😁</li>
+              </ul>
+            </p>
+            <p>
+              <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/273291388/">Book now</a> on Meetup.com
+            </p>
+              <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/security.jpg"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
+                height="250px"
+              >
+              </v-img>
+            <p>
+              Pizza / Drinks to follow at 5:30 pm. If Wellington is still at Covid-19 Level 2, then we'll be limiting general attendees to 90 (to allow 10 facilitators).
+            </p>
+            <p>
+              Date & time: 4:30pm - 5:30pm, Tuesday 6 Oct 2020 
+            </p>
+            <p>
+              Location: BNZ, The Terrace, Wellington
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row justify="center">
+      <v-col cols="10" md="8">
+        <v-card class="pa-2" outlined tile>
+          <v-card-text class="grey--text text--lighten-2">
+            <h1>
               Christchurch User Group Notice
             </h1>
-            <h2 class="subtitle">
+            <hr><br>
+            <h2>
               AWS Meet Up: Deep Racer Lunch & Learn 🏎
             </h2>
             <p>
