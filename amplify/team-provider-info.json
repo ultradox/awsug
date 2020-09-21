@@ -1,49 +1,49 @@
 {
-    "master": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-awsug-master-74529-authRole",
-            "UnauthRoleArn": "arn:aws:iam::161492946389:role/amplify-awsug-master-74529-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::161492946389:role/amplify-awsug-master-74529-authRole",
-            "Region": "ap-southeast-2",
-            "DeploymentBucketName": "amplify-awsug-master-74529-deployment",
-            "UnauthRoleName": "amplify-awsug-master-74529-unauthRole",
-            "StackName": "amplify-awsug-master-74529",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:161492946389:stack/amplify-awsug-master-74529/10b2c390-8f09-11ea-a590-02e4cfa07dc4",
-            "AmplifyAppId": "d2sj4nd59hlyz3"
-        },
-        "categories": {
-            "auth": {
-                "awsug1ae5855e": {}
-            },
-            "function": {
-                "awsug1ae5855ePostConfirmation": {
-                    "GROUP": "everyone"
-                },
-                "automailer": {}
-            }
-        }
+  "master": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsug-master-74529-authRole",
+      "UnauthRoleArn": "arn:aws:iam::161492946389:role/amplify-awsug-master-74529-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::161492946389:role/amplify-awsug-master-74529-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-awsug-master-74529-deployment",
+      "UnauthRoleName": "amplify-awsug-master-74529-unauthRole",
+      "StackName": "amplify-awsug-master-74529",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:161492946389:stack/amplify-awsug-master-74529/10b2c390-8f09-11ea-a590-02e4cfa07dc4",
+      "AmplifyAppId": "d2sj4nd59hlyz3"
     },
-    "playpen": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-awsug-playpen-164139-authRole",
-            "UnauthRoleArn": "arn:aws:iam::923741259517:role/amplify-awsug-playpen-164139-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::923741259517:role/amplify-awsug-playpen-164139-authRole",
-            "Region": "ap-southeast-2",
-            "DeploymentBucketName": "amplify-awsug-playpen-164139-deployment",
-            "UnauthRoleName": "amplify-awsug-playpen-164139-unauthRole",
-            "StackName": "amplify-awsug-playpen-164139",
-            "StackId": "arn:aws:cloudformation:ap-southeast-2:923741259517:stack/amplify-awsug-playpen-164139/d9e48630-a166-11ea-a4cf-06e223705692",
-            "AmplifyAppId": "d3azv18khy8tnh"
+    "categories": {
+      "auth": {
+        "awsug1ae5855e": {}
+      },
+      "function": {
+        "awsug1ae5855ePostConfirmation": {
+          "GROUP": "everyone"
         },
-        "categories": {
-            "auth": {
-                "awsug1ae5855e": {}
-            },
-            "function": {
-                "awsug1ae5855ePostConfirmation": {
-                    "GROUP": "everyone"
-                }
-            }
-        }
+        "automailer": {}
+      }
     }
+  },
+  "playpen": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsug-playpen-164139-authRole",
+      "UnauthRoleArn": "arn:aws:iam::923741259517:role/amplify-awsug-playpen-164139-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::923741259517:role/amplify-awsug-playpen-164139-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-awsug-playpen-164139-deployment",
+      "UnauthRoleName": "amplify-awsug-playpen-164139-unauthRole",
+      "StackName": "amplify-awsug-playpen-164139",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:923741259517:stack/amplify-awsug-playpen-164139/d9e48630-a166-11ea-a4cf-06e223705692",
+      "AmplifyAppId": "d3azv18khy8tnh"
+    },
+    "categories": {
+      "auth": {
+        "awsug1ae5855e": {}
+      },
+      "function": {
+        "awsug1ae5855ePostConfirmation": {
+          "GROUP": "everyone"
+        }
+      }
+    }
+  }
 }

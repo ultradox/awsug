@@ -53,16 +53,16 @@
               Level: Beginner to Intermediate.
             </p>
             <p>
-              If you're new to AWS, then please come along. Members of the committee will be there to assist you through the workshop.
+              If you're new to AWS, then please come along. Members of the committee will be there to assist you through <a href="https://awssecworkshops.com/">this workshop</a>.
             </p>
             <p>
               What you'll need:
-              <ul>
-                <li>Your own AWS Account.</li>
-                <li>Your own laptop to participate in the security workshop</li>
-                <li>Remember to book if you want to come 😁</li>
-              </ul>
             </p>
+            <ul>
+              <li>Your own AWS Account.</li>
+              <li>Your own laptop to participate in the security workshop</li>
+              <li>Remember to book if you want to come 😁</li>
+            </ul>
             <p>
               <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/273291388/">Book now</a> on Meetup.com
             </p>
