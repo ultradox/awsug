@@ -117,8 +117,7 @@
               refreshments provided.
             </p>
             <p>
-              Date & time: 12:00pm - 1:30pm, Friday 25th Sept 2020 (the day
-              after the Chch tech summit)
+              Date & time: 12:00pm - 1:30pm, Friday 14th Oct 2020
             </p>
             <p>
               Location: The George Hotel, 50 Park Terrace, Christchurch Central
