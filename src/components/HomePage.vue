@@ -45,24 +45,37 @@
             <h1>
               AWS Security Workshop - You'll Need Own Laptop & AWS Account
             </h1>
-            <hr><br>
+            <br>
             <h3>
               AWS Security workshop this October in Wellington at BNZ on The Terrace 🔐👍
             </h3>
             <p>
               Level: Beginner to Intermediate.
             </p>
+            <hr><br>
             <p>
-              If you're new to AWS, then please come along. Members of the committee will be there to assist you through <a href="https://awssecworkshops.com/">this workshop</a>.
+              Hello fellow AWS Users! We'd like to remind you that on Tuesday, October 6th is our Monthly meetup!
             </p>
+            <p>
+              This month we will have a <a href="https://awssecworkshops.com/">security hands-on workshop about Access Delegation</a> (Level 200). We will learn how to use Amazon IAM to delegate access to services and promote the Principle of Least Privilege - giving users the minimum level of privilege they need to do their tasks.
+            </p>
+            <p>
+              We will:
+            </p>
+            <ul>
+              <li>Build the environment using AWS CloudFormation</li>
+              <li>Perform further customization on the environments to restrict the capabilities</li>
+              <li>Test your customizations</li>
+            </ul>
+            <br>
             <p>
               What you'll need:
             </p>
             <ul>
               <li>Your own AWS Account.</li>
-              <li>Your own laptop to participate in the security workshop</li>
-              <li>Remember to book if you want to come 😁</li>
+              <li>Your own laptop and charger</li>
             </ul>
+            <br>
             <p>
               <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/273291388/">Book now</a> on Meetup.com
             </p>
@@ -80,7 +93,10 @@
               Date & time: 4:30pm - 5:30pm, Tuesday 6 Oct 2020 
             </p>
             <p>
-              Location: BNZ, The Terrace, Wellington
+              Location: BNZ, 96 The Terrace, Wellington
+            </p>
+            <p>
+              Our sincere thanks to BNZ for sponsoring the Venue!
             </p>
           </v-card-text>
         </v-card>
