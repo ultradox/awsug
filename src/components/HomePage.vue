@@ -9,7 +9,7 @@
       >
       </v-img>
 
-      <v-card-title class="headline white--text">{{ card.title }}</v-card-title>
+      <v-card-title class="headline white--text justify-center">{{ card.title }}</v-card-title>
       <!-- Socialite-Mass Surveilance Icons -->
       <v-card-actions>
         <v-row>
@@ -43,60 +43,56 @@
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              AWS Security Workshop - You'll Need Own Laptop & AWS Account
+              GameDay, Event Engine and Scaling Challenges
             </h1>
-            <br>
-            <h3>
-              AWS Security workshop this October in Wellington at BNZ on The Terrace 🔐👍
-            </h3>
-            <p>
-              Level: Beginner to Intermediate.
-            </p>
             <hr><br>
+            <h2>
+              Presented by Richard Busby (Buzzy)
+            </h2>
             <p>
-              Hello fellow AWS Users! We'd like to remind you that on Tuesday, October 6th is our Monthly meetup!
+              Date & time: Tuesday, November 3, 2020<br>
+              4:30 PM to 6:30 PM<br>
+              Location: 96 The Terrace, BNZ Building Ground Floor
             </p>
             <p>
-              This month we will have a <a href="https://awssecworkshops.com/">security hands-on workshop about Access Delegation</a> (Level 200). We will learn how to use Amazon IAM to delegate access to services and promote the Principle of Least Privilege - giving users the minimum level of privilege they need to do their tasks.
+              
             </p>
             <p>
-              We will:
+              At every AWS re:Invent since 2013, AWS has run a Gameday: a simulation exercise 
+              that gathers customers into teams of four, gives them a sort-of-working system, 
+              and challenges them to keep it running and stable in the face of unplanned changes 
+              and threats, both internal and external. 
             </p>
-            <ul>
-              <li>Build the environment using AWS CloudFormation</li>
-              <li>Perform further customization on the environments to restrict the capabilities</li>
-              <li>Test your customizations</li>
-            </ul>
-            <br>
+            <!-- <p>
+              Level: Beginner to Intermediate.
+            </p> -->
             <p>
-              What you'll need:
+              Creating a Gameday is an adventure in itself: dreaming up a scenario and the chaotic 
+              & unpredictable events to throw at the teams, all while balancing “challenging vs fun” 
+              for the attendees. 
             </p>
-            <ul>
-              <li>Your own AWS Account.</li>
-              <li>Your own laptop and charger</li>
-            </ul>
-            <br>
-            <p>
-              <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/273291388/">Book now</a> on Meetup.com
-            </p>
-              <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/security.jpg"
+            <p>            
+              It turns out making something that’s super-reliable at causing unreliable things to 
+              happen is not trivial. Running events like this at scale also requires a stable, 
+              reliable engine to handle the AWS accounts and infrastructure, interactions, scoring, 
+              and other aspects. This talk will cover aspects of AWS Gameday, and also the underlying 
+              AWS Event Engine, the account and infrastructure-provisioning system that powers tens 
+              of thousands of hands-on events that AWS runs each year.
+            <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/deep-learner.jpeg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
               >
               </v-img>
-            <p>
-              Pizza / Drinks to follow at 5:30 pm. If Wellington is still at Covid-19 Level 2, then we'll be limiting general attendees to 90 (to allow 10 facilitators).
             </p>
             <p>
-              Date & time: 4:30pm - 5:30pm, Tuesday 6 Oct 2020 
-            </p>
-            <p>
-              Location: BNZ, 96 The Terrace, Wellington
-            </p>
-            <p>
-              Our sincere thanks to BNZ for sponsoring the Venue!
+              Buzzy is a Principal Engagement Architect at AWS. His team builds mechanisms and tools 
+              to help AWS Solutions Architects engage with customers. If you’ve had a Solutions Architect 
+              or TAM run an Immersion Day or a GameDay, his team have been behind the systems that run, 
+              track, and measure these. Prior to this role, he worked as a Solutions Architect at AWS, 
+              working directly with many customers in NZ and overseas. He lives in Wellington, New Zealand, 
+              with his family and several chickens.
             </p>
           </v-card-text>
         </v-card>
@@ -107,47 +103,41 @@
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              Christchurch User Group Notice
+              Common Pitfalls in AWS Implementations
             </h1>
             <hr><br>
             <h2>
-              AWS Meet Up: Deep Racer Lunch & Learn 🏎
+              Presented by Blaise St-Laurent
             </h2>
             <p>
-              The Christchurch team at Consegna are hosting a free AWS DeepRacer
-              Lunch & Learn for all those that are interested in getting their
-              foot in the door with DeepRacer specifically, or are just
-              interested in knowing more about the Machine Learning behind it.
-              <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/deep-learner.jpeg"
+              Date & time: Tuesday, November 3, 2020<br>
+              4:30 PM to 6:30 PM<br>
+              Location: 96 The Terrace, BNZ Building Ground Floor
+            </p>
+            <p>
+              
+            </p>
+            <p>
+              Over the last two years ZX Security has been asked to review the AWS 
+              Security implementations of customers large and small, this talk will 
+              be a quick recap of the most common, most serious and most out there 
+              issues we've found.
+            </p>
+            <p>
+              Blaise is an Architect and Cloud Lead at ZX Security.
+            <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/pitfalls.jpg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
               >
               </v-img>
             </p>
-            <p>
-              This introductory session is meant to bring those that are keen,
-              up to speed with DeepRacer modelling and how to get started. All
-              are welcome to come along, and there will be lunch & light
-              refreshments provided.
-            </p>
-            <p>
-              Date & time: 12:00pm - 1:30pm, Friday 14th Oct 2020
-            </p>
-            <p>
-              Location: The George Hotel, 50 Park Terrace, Christchurch Central
-            </p>
-            <br />
-            <p>
-              If this sounds like you, please
-              <a href="https://bit.ly/2R6VAs9">register today</a>
-              as space is limited.
-            </p>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
+
     <!-- <v-row>
       <v-col cols="12">
         <SponsorHighlight />
