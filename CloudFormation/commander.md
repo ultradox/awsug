@@ -31,4 +31,5 @@ aws s3 sync s3://awsug-image-bank-cfn . --exclude "*.DS_Store"  --profile awsug
 **UPLOAD**
 ```
 aws s3 sync . s3://awsug-image-bank-cfn --exclude "*.DS_Store"  --profile awsug
+aws s3 cp [image] s3://awsug-image-bank-cfn  --profile awsug
 ```
