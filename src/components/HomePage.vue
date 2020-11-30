@@ -43,30 +43,31 @@
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              AWS User Group Summit on 27 November
+              AWS Deep Racer
             </h1>
             <hr><br>
-            <h2>
+            <!-- <h2>
               Hear from AWS Heroes and leading community members
-            </h2>
+            </h2> -->
             <p>
-              Date & time: Tuesday, November 3, 2020<br>
-              12PM - 3:30PM<br>
-              RSVP: <a href="https://lnkd.in/g56FUHA">https://lnkd.in/g56FUHA</a>
+              Date & time: Monday, December 14, 2020<br>
+              10AM - 6:00PM<br>
+              20 Customhouse Quay · Wellington<br>
+              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/274664714/">Meetup.com</a>
             </p>
             <p>
               
             </p>
             <p>
-              You’re invited to the first exclusive AWS Australia & New Zealand User Group Summit on 27 November !
+              AWS DeepRacer gives you an interesting and fun way to get started with reinforcement learning (RL). RL is an advanced machine learning (ML) technique that takes a very different approach to training models than other machine learning methods. Its super power is that it learns very complex behaviors without requiring any labeled training data, and can make short term decisions while optimizing for a longer term goal.
             </p>
             <p>
-Hear from AWS Heroes and leading community leaders for a jam packed day of exciting breakout sessions, giveaways, recognition awards, announcements around AWS User Group benefits, support programs and much more! 
+              Deloitte will have a DeepRacer with track for you to try out and see how fast you can go.
             </p>
             <p>            
-              This inaugural summit is by the community, for the community and will feature growth tips, share success stories and offer technical insights to help you continue to connect with your peers and empower you to innovate.
+              <a href="https://aws.amazon.com/deepracer/">Find out more about DeepRacer</a>
             <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/aws-summit.png"
+                src="https://d25nsddk6i6506.cloudfront.net/events/deep-racer.jpeg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
