@@ -78,6 +78,46 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row justify="center">
+      <v-col cols="10" md="8">
+        <v-card class="pa-2" outlined tile>
+          <v-card-text class="grey--text text--lighten-2">
+            <h1>
+              re:Invent re:Cap
+            </h1>
+            <hr><br>
+            <h2>
+              With Scott Patterson and Chris Watson
+            </h2>
+            <p>
+              Date & time: Monday, December 14, 2020<br>
+              4:00OM - 8:00PM<br>
+              20 Customhouse Quay · Wellington<br>
+              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/274596919/">Meetup.com</a>
+            </p>
+            <p>
+              At AWS the culture of Innovation drives much of what we do, much of the innovation is driven by customers themselves. There is no bigger event showcasing AWS Innovation than AWS re:Invent so for those who are unable to attend this event online, you can experience the key announcements explained by a team from AWS alongside the Wellington AWS User Group and AWS Premier global cloud partner Deloitte.
+            </p>
+            <p>
+              re:CAP will be presented by a team made up of AWS Ambassadors, AWS Cloud leaders in the field, Deloitte’s Cloud team, providing information on key insights, supported by AWS Solution Architects and hot off the press announcements for AWS users in New Zealand. The session will run from 4-7pm and be followed by a chance to mingle with industry peers over some pizza and beer - and networking giving us an great opportunity to discuss the great new developments.
+            </p>
+            <p>
+              In the words of Jeff Barr- "The Journey Begins with You. No matter what your role is in your company’s cloud efforts, you’ll walk away with the technical knowledge to help you and your company refine your cloud strategy, increase application performance, and so much more."
+            </p>
+            <p>            
+              <a href="https://aws.amazon.com/deepracer/">Find out more about DeepRacer</a>
+            <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/reinvent.jpg"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
+                height="250px"
+              >
+              </v-img>
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
     
     <!-- <v-row>
       <v-col cols="12">
