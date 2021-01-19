@@ -43,71 +43,47 @@
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              AWS Deep Racer
+              February 2021 Meetup Event
             </h1>
+            <p>
+              Date & time: Tuesday, February 2, 2021<br>
+              4:30 PM to 6:30 PM GMT+13<br>
+              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/275819512/">Meetup.com</a>
+            </p>
             <hr><br>
-            <!-- <h2>
-              Hear from AWS Heroes and leading community members
-            </h2> -->
+            <h2>
+              Cost Optimisation of Public Cloud, by Carlos Reyneke
+            </h2>
+
             <p>
-              Date & time: Monday, December 14, 2020<br>
-              10AM - 6:00PM<br>
-              20 Customhouse Quay · Wellington<br>
-              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/274664714/">Meetup.com</a>
+              Carlos is an AWS Cloud Engineer at Deloitte with nearly 20 years hands-on experience in managing and delivering robust ICT solutions. He is currently assisting clients across multiple industries adopt best practices and to get the most out of AWS.
             </p>
             <p>
-              
-            </p>
+              Cost optimization of public cloud resources is one of the five pillars of the AWS Well Architected Framework, yet many organizations haven’t taken the step to invest in a FinOps capability to ensure business outcomes are achieved at the lowest price point. FinOps is about combining financial accountability with autonomous team delivery. This is an exciting area of focus that organizations shouldn’t ignore.
+            </p>  
             <p>
-              AWS DeepRacer gives you an interesting and fun way to get started with reinforcement learning (RL). RL is an advanced machine learning (ML) technique that takes a very different approach to training models than other machine learning methods. Its super power is that it learns very complex behaviors without requiring any labeled training data, and can make short term decisions while optimizing for a longer term goal.
-            </p>
-            <p>
-              Deloitte will have a DeepRacer with track for you to try out and see how fast you can go.
-            </p>
-            <p>            
-              <a href="https://aws.amazon.com/deepracer/">Find out more about DeepRacer</a>
-            <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/deep-racer.jpeg"
+              <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/aws-cost-optimisation.jpg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
               >
               </v-img>
-            </p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-row justify="center">
-      <v-col cols="10" md="8">
-        <v-card class="pa-2" outlined tile>
-          <v-card-text class="grey--text text--lighten-2">
-            <h1>
-              re:Invent re:Cap
-            </h1>
+            </p>          
             <hr><br>
-            <h2>
-              With Scott Patterson and Chris Watson
-            </h2>
+            <h2>AWS Network Firewall, by Chris Watson</h2>
             <p>
-              Date & time: Monday, December 14, 2020<br>
-              4:00OM - 8:00PM<br>
-              20 Customhouse Quay · Wellington<br>
-              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/274596919/">Meetup.com</a>
+              Chris is an experienced AWS Architect, at Datacom with many years experience working on AWS including data centre migrations, security uplifts, cost optimization etc.
             </p>
             <p>
-              At AWS the culture of Innovation drives much of what we do, much of the innovation is driven by customers themselves. There is no bigger event showcasing AWS Innovation than AWS re:Invent so for those who are unable to attend this event online, you can experience the key announcements explained by a team from AWS alongside the Wellington AWS User Group and AWS Premier global cloud partner Deloitte.
+              The new AWS Network Firewall is a great new service which now means that in AWS you can natively do URL filtering, packet inspection etc. at scale.
             </p>
             <p>
-              re:CAP will be presented by a team made up of AWS Ambassadors, AWS Cloud leaders in the field, Deloitte’s Cloud team, providing information on key insights, supported by AWS Solution Architects and hot off the press announcements for AWS users in New Zealand. The session will run from 4-7pm and be followed by a chance to mingle with industry peers over some pizza and beer - and networking giving us an great opportunity to discuss the great new developments.
+              Learn how to set-up within an AWS Network, its functionality, its costs etc. including seeing it in action in demo environment.
             </p>
             <p>
-              In the words of Jeff Barr- "The Journey Begins with You. No matter what your role is in your company’s cloud efforts, you’ll walk away with the technical knowledge to help you and your company refine your cloud strategy, increase application performance, and so much more."
-            </p>
-            <p>            
-              <a href="https://aws.amazon.com/deepracer/">Find out more about DeepRacer</a>
-            <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/reinvent.jpg"
+              <v-img
+                src="https://d25nsddk6i6506.cloudfront.net/events/security.jpg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
@@ -181,14 +157,14 @@ export default {
       {
         icon: "mdi-linkedin",
         link: "https://www.linkedin.com/groups/13751121/",
-      },
+      }
     ],
     card: {
       title: "New Zealand's own user-run, user-focused AWS community.",
       src: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-wide.png",
       srcWide: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-xwide.png",
       flex: 12,
-    },
+    }
   }),
 };
 </script>
