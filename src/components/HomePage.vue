@@ -48,6 +48,7 @@
             <p>
               Date & time: Tuesday, February 2, 2021<br>
               4:30 PM to 6:30 PM GMT+13<br>
+              BNZ on The Terrace<br>
               RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/275819512/">Meetup.com</a>
             </p>
             <hr><br>
@@ -160,7 +161,7 @@ export default {
       }
     ],
     card: {
-      title: "New Zealand's own user-run, user-focused AWS community.",
+      title: "New Zealand's own user-run, user-focused AWS community, Wellington Chapter.",
       src: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-wide.png",
       srcWide: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-xwide.png",
       flex: 12,
