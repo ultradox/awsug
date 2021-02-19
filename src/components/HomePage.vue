@@ -43,48 +43,54 @@
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              February 2021 Meetup Event
+              March 2021 Event 💛🧡
             </h1>
             <p>
-              Date & time: Tuesday, February 2, 2021<br>
+              Date & time: Tuesday, March 2, 2021<br>
               4:30 PM to 6:30 PM GMT+13<br>
-              BNZ on The Terrace<br>
-              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/275819512/">Meetup.com</a>
+              BNZ, 96 The Terrace<br>
+              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/276435488/">Meetup.com</a>
             </p>
-            <hr><br>
-            <h2>
-              Cost Optimisation of Public Cloud, by Carlos Reyneke
+            <h1>
+              Amazon QuickSight (Beginner Level)
+            </h1>
+             <h2>
+              by Gopinath Gandu Sekar, database professional at Contact Energy
             </h2>
-
+            <hr><br>
             <p>
-              Carlos is an AWS Cloud Engineer at Deloitte with nearly 20 years hands-on experience in managing and delivering robust ICT solutions. He is currently assisting clients across multiple industries adopt best practices and to get the most out of AWS.
+              Gopi has over 14 years of IT experience in Database Architecture, administration, performance and security.
             </p>
             <p>
-              Cost optimization of public cloud resources is one of the five pillars of the AWS Well Architected Framework, yet many organizations haven’t taken the step to invest in a FinOps capability to ensure business outcomes are achieved at the lowest price point. FinOps is about combining financial accountability with autonomous team delivery. This is an exciting area of focus that organizations shouldn’t ignore.
+              Gopi will give a beginner friendly teaching about QuickSight.
+            </p>
+            <p>
+              Amazon QuickSight is a scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service built for the cloud. QuickSight lets you easily create and publish interactive BI dashboards that include Machine Learning-powered insights. QuickSight dashboards can be accessed from any device, and seamlessly embedded into your applications, portals, and websites.
             </p>  
             <p>
               <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/aws-cost-optimisation.jpg"
+                src="https://d25nsddk6i6506.cloudfront.net/events/quicksight.jpg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
               >
               </v-img>
             </p>          
+            <br><br>
+            <h1>Associate Level AWS Certification (Beginner to Intermediate Level)</h1>
+            <h2>
+              by Sebastian Kruger, Partner at Deloitte Digital New Zealand
+            </h2>
             <hr><br>
-            <h2>AWS Network Firewall, by Chris Watson</h2>
             <p>
-              Chris is an experienced AWS Architect, at Datacom with many years experience working on AWS including data centre migrations, security uplifts, cost optimization etc.
+              As an AWS practitioner since 2014, Sebastian is always a hands-on-tools technology leader who doesn't hesitate to roll up the sleeves and write some code. AWS certified since 2014, continuously.
             </p>
             <p>
-              The new AWS Network Firewall is a great new service which now means that in AWS you can natively do URL filtering, packet inspection etc. at scale.
-            </p>
-            <p>
-              Learn how to set-up within an AWS Network, its functionality, its costs etc. including seeing it in action in demo environment.
+              Are you interested in getting one, two or three of the AWS Associate Certifications? The come along and Sebastian will talk through these certifications including study options, essential learning and more to help you on your AWS Certification journey.
             </p>
             <p>
               <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/security.jpg"
+                src="https://d25nsddk6i6506.cloudfront.net/events/study.jpg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
                 height="250px"
