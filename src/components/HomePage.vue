@@ -38,7 +38,7 @@
         </v-row>
       </v-card-actions>
     </v-card>
-    <v-row justify="center">
+    <!-- <v-row justify="center">
       <v-col cols="10" md="8">
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
@@ -100,7 +100,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-    </v-row>
+    </v-row> -->
     
     <!-- <v-row>
       <v-col cols="12">
