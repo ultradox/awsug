@@ -38,15 +38,15 @@
         </v-row>
       </v-card-actions>
     </v-card>
-    <!-- <v-row justify="center">
+    <v-row justify="center">
       <v-col cols="10" md="8">
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              March 2021 Event 💛🧡
+              April 2021 Event 💛🧡
             </h1>
             <p>
-              Date & time: Tuesday, March 2, 2021<br>
+              Date & time: Tuesday, April 13, 2021<br>
               4:30 PM to 6:30 PM GMT+13<br>
               BNZ, 96 The Terrace<br>
               RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/276435488/">Meetup.com</a>
@@ -100,7 +100,7 @@
           </v-card-text>
         </v-card>
       </v-col>
-    </v-row> -->
+    </v-row>
     
     <!-- <v-row>
       <v-col cols="12">
