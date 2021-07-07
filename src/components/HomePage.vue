@@ -9,7 +9,9 @@
       >
       </v-img>
 
-      <v-card-title class="headline white--text justify-center">{{ card.title }}</v-card-title>
+      <v-card-title class="headline white--text justify-center">{{
+        card.title
+      }}</v-card-title>
       <!-- Socialite-Mass Surveilance Icons -->
       <v-card-actions>
         <v-row>
@@ -20,7 +22,7 @@
               target="_blank"
             >
               <v-avatar size="45">
-                <img src="../assets/meetup.png" />
+                <img src="../assets/meetup.png" alt="meetup" />
               </v-avatar>
             </v-btn>
             <v-btn
@@ -43,50 +45,62 @@
         <v-card class="pa-2" outlined tile>
           <v-card-text class="grey--text text--lighten-2">
             <h1>
-              April 2021 Event 💛🧡
+              August 2021 Event 💛🧡
             </h1>
             <p>
-              Date & time: Tuesday, April 13, 2021<br>
-              4:30 PM to 6:30 PM GMT+13<br>
-              BNZ, 96 The Terrace<br>
-              RSVP: <a href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/276435488/">Meetup.com</a>
+              Date & time: Tuesday, August 3, 2021<br />
+              4:30 PM to 6:30 PM GMT+13<br />
+              BNZ, 96 The Terrace<br />
+              RSVP:
+              <a
+                href="https://www.meetup.com/Amazon-Web-Services-Wellington-User-Group/events/279282938/"
+                >Meetup.com</a
+              >
             </p>
             <h1>
-              Amazon QuickSight (Beginner Level)
+              Application Containerization with ECS and Fargate
             </h1>
-             <h2>
-              by Gopinath Gandu Sekar, database professional at Contact Energy
-            </h2>
-            <hr><br>
+            <h3>
+              by Lilupa Karu, Tech Lead at Fronde
+            </h3>
+            <hr />
+            <br />
             <p>
-              Gopi has over 14 years of IT experience in Database Architecture, administration, performance and security.
+              Learn how to use EC2 and Fargate to take your applications and
+              containerize them. This will include a demo.
             </p>
-            <p>
-              Gopi will give a beginner friendly teaching about QuickSight.
-            </p>
-            <p>
-              Amazon QuickSight is a scalable, serverless, embeddable, machine learning-powered business intelligence (BI) service built for the cloud. QuickSight lets you easily create and publish interactive BI dashboards that include Machine Learning-powered insights. QuickSight dashboards can be accessed from any device, and seamlessly embedded into your applications, portals, and websites.
-            </p>  
             <p>
               <v-img
-                src="https://d25nsddk6i6506.cloudfront.net/events/quicksight.jpg"
+                src="https://d25nsddk6i6506.cloudfront.net/events/deep-learner.jpeg"
                 class="white--text align-end"
                 gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,.2)"
-                height="250px"
+                height="350px"
               >
               </v-img>
-            </p>          
-            <br><br>
-            <h1>Associate Level AWS Certification (Beginner to Intermediate Level)</h1>
-            <h2>
-              by Sebastian Kruger, Partner at Deloitte Digital New Zealand
-            </h2>
-            <hr><br>
+            </p>
+            <br /><br />
+            <h1>Career Progression and Opportunities</h1>
+            <h3>
+              by Michael Crichton, Senior Business Manager and Ellie Garfield,
+              Senior Client Engagement Consultant at Hays
+            </h3>
+            <hr />
+            <br />
             <p>
-              As an AWS practitioner since 2014, Sebastian is always a hands-on-tools technology leader who doesn't hesitate to roll up the sleeves and write some code. AWS certified since 2014, continuously.
+              Michael is an experienced sales and marketing professional with
+              over 10-years of recruitment experience, recruiting at entry and
+              executive levels in Europe, Japan, and New Zealand.
             </p>
             <p>
-              Are you interested in getting one, two or three of the AWS Associate Certifications? The come along and Sebastian will talk through these certifications including study options, essential learning and more to help you on your AWS Certification journey.
+              Ellie specialises in IT Infrastructure and Support recruitment
+              across Wellington with a focus on permanent employment.
+            </p>
+            <p>
+              Michael and Ellie will talk about the current market and what
+              opportunities and career progression is out there. Also, they will
+              explain how they can support everyone looking for advice and
+              guidance in their career; interview tips, CV advice, ways that
+              others are succeeding etc.
             </p>
             <p>
               <v-img
@@ -101,7 +115,7 @@
         </v-card>
       </v-col>
     </v-row>
-    
+
     <!-- <v-row>
       <v-col cols="12">
         <SponsorHighlight />
@@ -143,7 +157,7 @@ export default {
     About,
     PastEvents,
     JoinUs,
-    ImportantLinks,
+    ImportantLinks
     // SponsorHighlight
   },
   data: () => ({
@@ -155,24 +169,25 @@ export default {
       // },
       {
         icon: "mdi-slack",
-        link: "https://slack-inviter-awsugnz.herokuapp.com/",
+        link: "https://slack-inviter-awsugnz.herokuapp.com/"
       },
       {
         icon: "mdi-facebook",
-        link: "https://www.facebook.com/awsugnz",
+        link: "https://www.facebook.com/awsugnz"
       },
       {
         icon: "mdi-linkedin",
-        link: "https://www.linkedin.com/groups/13751121/",
+        link: "https://www.linkedin.com/groups/13751121/"
       }
     ],
     card: {
-      title: "New Zealand's own user-run, user-focused AWS community, Wellington Chapter.",
+      title:
+        "New Zealand's own user-run, user-focused AWS community, Wellington Chapter.",
       src: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-wide.png",
       srcWide: "https://d25nsddk6i6506.cloudfront.net/logo-onblack-xwide.png",
-      flex: 12,
+      flex: 12
     }
-  }),
+  })
 };
 </script>
 
