@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <h1 class="display-2 my-3">Consitution</h1>
+      <h1 class="display-2 my-3">Constitution</h1>
 
       <h1 class="mt-6">The Society</h1>
       <v-divider></v-divider>
@@ -39,7 +39,8 @@
         comprising the following persons:
       </h3>
       <ul class="ml-3">
-        <li>2x Co-Presidents;</li>
+        <li>The President;</li>
+        <li>The Vice President;</li>
         <li>The Secretary;</li>
         <li>The Treasurer; and</li>
         <li>Such other Members as the Society shall decide.</li>
@@ -59,10 +60,8 @@
       </h3>
       <ul class="ml-3">
         <li>How large the Committee will be;</li>
-        <li>Who shall be the Co-Presidents, Secretary, and Treasurer;</li>
         <li>
-          Whether any Committee Member may hold more than one position as an
-          officer;
+          Who shall be the President, Vice President, Secretary, and Treasurer;
         </li>
         <li>How long each person will be a Committee Member ("the Term").</li>
       </ul>
@@ -87,14 +86,12 @@
       <ol>
         <li>
           Nominations for members of the Committee shall be called for at least
-          28 days before an Annual General Meeting.
-        </li>
-        <li>
-          Each candidate shall be proposed and seconded in writing by Members
-          and the completed nomination delivered to the Secretary. Nominations
-          shall close at 5pm on the fifth day before the Annual General Meeting.
-          [See also rule 21.4(b)] All retiring members of the Committee shall be
-          eligible for re-election.
+          28 days before an Annual General Meeting. Each candidate shall be
+          proposed and seconded in writing by Members and the completed
+          nomination delivered to the Secretary. Nominations shall close at 5pm
+          on the fifth day before the Annual General Meeting. [See also rule
+          21.4(b)] All retiring members of the Committee shall be eligible for
+          re-election.
         </li>
 
         <li>
@@ -111,8 +108,8 @@
 
         <li>
           If any Committee Member is absent from three consecutive meetings
-          without leave of absence the either Co-President may declare that
-          person’s position to be vacant.
+          without leave of absence the either the President or Vice President
+          may declare that person’s position to be vacant.
         </li>
       </ol>
 
@@ -174,7 +171,7 @@
       <h2 class="mt-3">9 Roles of Committee Members</h2>
 
       <ol>
-        <li>The Co-Presidents are responsible for:</li>
+        <li>The President and Vice President are responsible for:</li>
       </ol>
       <ul class="ml-3">
         <li>Ensuring that the Rules are followed;</li>
@@ -243,13 +240,12 @@
           Committee Members attend;
         </li>
         <li>
-          Either of the two Co-Presidents shall chair Committee Meetings, or if
-          both Co-Presidents are absent, the Committee shall elect a Committee
-          Member to chair that meeting;
+          The President shall chair Committee Meetings, the Vice President shall
+          chair Committee Meetings if the President is not available;
         </li>
         <li>Decisions of the Committee shall be by majority vote;</li>
         <li>
-          The Co-Presidents or single person acting as Co-President has a single
+          The President or single person acting as President has a single
           casting vote, that is, a second vote;
         </li>
         <li>
@@ -260,15 +256,14 @@
           Subject to these Rules, the Committee may regulate its own practices;
         </li>
         <li>
-          Either Co-President or their nominee shall adjourn the meeting if
-          necessary.
+          The President or their nominee shall adjourn the meeting if necessary.
         </li>
         <li>
           Adjourned Meetings: If within half an hour after the time appointed
           for a meeting a quorum is not present the meeting, if convened upon
           requisition of members, shall be dissolved; in any other case it shall
-          stand adjourned to a day, time and place determined by the
-          Co-Presidents of the Society, and if at such adjourned meeting a
+          stand adjourned to a day, time and place determined by the President
+          President of the Society, and if at such adjourned meeting a quorum is
           quorum is not present the meeting shall be dissolved without further
           adjournments. The Co-Presidents may with the consent of any Society
           Meeting adjourn the same from time to time and from place to place but
@@ -455,6 +450,13 @@
           vote at any Society Meeting.
         </li>
       </ul>
+      <ol start="2">
+        <li>
+          The President, Vice President, and Treasure have signatory rights on
+          financial transactions; a minimum of 2 signatories are required to
+          approve all financial transactions.
+        </li>
+      </ol>
       <h2 class="mt-3">19 Financial Year</h2>
 
       <ol>
@@ -522,19 +524,24 @@
       </p>
       <ol start="5">
         <li>All Members may attend and vote at Society Meetings.</li>
+      </ol>
+      <ol start="6">
         <li>
-          No Society Meeting may be held unless at least 66 % of eligible
+          No Society Meeting may be held unless at least 40 % of eligible
           Members attend. (This will constitute a quorum.)
         </li>
+      </ol>
+      <ol start="7">
         <li>
-          All Society Meetings shall be Chaired by the Co-Presidents. If the
-          both the Co-Presidents are absent, the Society shall elect another
-          Committee Member to Chair that meeting. Any person Chairing a Society
-          Meeting has a casting vote.
+          All Society Meetings shall be Chaired by the President. If the the
+          President is absent, the Vice President shall Chair that meeting. Any
+          person Chairing a Society Meeting has a casting vote.
         </li>
+      </ol>
+      <ol start="8">
         <li>
-          On any given motion at a Society Meeting, the Co-Presidents shall in
-          good faith determine whether to vote by:
+          On any given motion at a Society Meeting, the President shall in good
+          faith determine whether to vote by:
         </li>
       </ol>
       <ul class="ml-3">
@@ -554,7 +561,7 @@
       </ol>
       <ul class="ml-3">
         <li>Receiving any minutes of the previous Society’s Meeting(s);</li>
-        <li>The Co-President’s report on the business of the Society;</li>
+        <li>The President’s report on the business of the Society;</li>
         <li>
           The Treasurer’s report on the finances of the Society, and the Annual
           Financial Statements;
@@ -565,21 +572,19 @@
       </ul>
       <ol start="10">
         <li>
-          The Co-Presidents or their nominee shall adjourn the meeting if
-          necessary.
+          The President or their nominee shall adjourn the meeting if necessary.
         </li>
         <li>
           Adjourned Meetings: If within half an hour after the time appointed
           for a meeting a quorum is not present the meeting, if convened upon
           requisition of members, shall be dissolved; in any other case it shall
-          stand adjourned to a day, time and place determined by the
-          Co-Presidents of the Society, and if at such adjourned meeting a
-          quorum is not present the meeting shall be dissolved without further
-          adjournments. The Co-Presidents may with the consent of any Society
-          Meeting adjourn the same from time to time and from place to place but
-          no business shall be transacted at any adjourned meeting other than
-          the business left unfinished at the meeting from which the adjournment
-          took place.
+          stand adjourned to a day, time and place determined by the President
+          of the Society, and if at such adjourned meeting a quorum is not
+          present the meeting shall be dissolved without further adjournments.
+          The President may with the consent of any Society Meeting adjourn the
+          same from time to time and from place to place but no business shall
+          be transacted at any adjourned meeting other than the business left
+          unfinished at the meeting from which the adjournment took place.
         </li>
       </ol>
       <h2 class="mt-3">22 Motions at Society Meetings</h2>
@@ -616,6 +621,22 @@
         </li>
       </ol>
 
+      <h1 class="mt-6">Common seal</h1>
+      <v-divider></v-divider>
+      <h2 class="mt-3">23 Common seal</h2>
+
+      <ol>
+        <li>
+          The Committee shall provide a common seal for the Society and may from
+          time to time replace it with a new one.
+        </li>
+        <li>
+          The Secretary shall have custody of the common seal, which shall only
+          be used by the authority of the Committee. Every document to which the
+          common seal is affixed shall be signed by the President and
+          countersigned by the Vice President.
+        </li>
+      </ol>
       <h1 class="mt-6">Altering the rules</h1>
       <v-divider></v-divider>
       <h2 class="mt-3">24 Altering the Rules</h2>
